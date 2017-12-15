@@ -73,11 +73,8 @@
 <div class="center">
     <h6 class="h6Forms">Edit Form</h6>
 
-<!-- Toggle Edit Form -->
-<form ng-show="ctrl.showForm === travel._id" ng-submit="ctrl.showEdit(travel)">
-    <input type="submit" value="Edit">
 
-</form>
+
 
 <!-- Edit Form -->
 <form ng-if="ctrl.showForm === travel._id" ng-submit="ctrl.editTravel(travel)">
@@ -96,8 +93,12 @@
     <div><input placeholder={{travel.img}} type="text" ng-model="ctrl.editData.img"
     ></div>
 
-    <button id="new-record-submit" type="submit" >EDIT</button>
 </form>
+
+<form ng-show="ctrl.showForm === travel._id" ng-submit="ctrl.showEdit(travel)">
+    <input type="submit" value="Submit Edit">
+</form>
+
 </div>
 
     </div>
