@@ -1,0 +1,25 @@
+{
+  "name": "recipe_app",
+  "version": "1.0.0",
+  "description": "Peter",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goodbye-angel/recipe_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goodbye-angel/recipe_app/issues"
+  },
+  "homepage": "https://github.com/goodbye-angel/recipe_app#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.7",
+    "nodemon": "^1.12.7"
+  }
+}

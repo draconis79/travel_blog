@@ -1,0 +1,191 @@
+
+body {
+  margin: 0 auto;
+}
+
+
+.detailsAbstract {
+	/* height: 210px; */
+	width: 100%;
+	overflow: hidden;
+	padding: 5px;
+	margin: 5px;
+
+}
+ul {
+	margin: 0 0;
+	
+}
+li {
+list-style-type: square;
+}
+
+
+
+.centerTop {
+	text-align: center;
+		justify-content: center;
+}
+
+.chooseCountry {
+	width: 42%;
+	border: 1px solid black;
+		padding: 1%;
+	margin: 1%;
+}
+
+.detailsTop {
+	width: 100%;
+	padding: 5px;
+	margin: 5px;
+}
+
+.detailsInfo {
+	display: flex;
+	flex-direction: row;
+}
+.flex {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.details {
+	border: 1px solid black;
+	/* width: 90%; */
+	padding: 1%;
+    margin: 2% 20% ;
+    background-color: #BFD8D4;
+    color: #162521;
+}
+
+.backgroundMiddle {
+    background-color: #FFFAE3;
+}
+
+.right {
+	width:20%;
+}
+
+.left {
+	width:60%;
+}
+
+.NewDataForm {
+	width: 94%;
+	border: 1px solid black;
+	padding: 10px;
+	margin: auto;
+}
+
+.AbstractWidth {
+	width: 50%;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #BB999C;;
+    color: #162521;
+}
+
+.logo {
+    margin: 0px 10px;
+    font-size: 30px;
+    padding: 5px;
+    width: 20%;
+    font-family: 'Times New Roman';
+    font-style: oblique;
+}
+
+
+.logo2 {
+     font-family: 'Times New Roman';
+    font-style: oblique;
+    padding-top: 180px;
+    font-size: 90px;
+    color: white;
+}
+
+
+.menu {
+    margin: 0 10px ;
+    padding: 2px 10px 2px 2px;
+    width: 50px;
+}
+.container {
+  margin: 10px;
+  background-color:#FFFAE3;
+}
+
+footer {
+text-align: center;
+  background-color: #BB999C;
+ color: #162521;
+  height: 50px;
+  margin: 0 0 0 0;
+  padding: 20px 0 0 20px;
+  box-shadow: 0px 500px 0px 500px #BB999C;
+
+}
+
+.directions {
+    text-align: center;
+}
+
+.head {
+    background-image: url(/css/images/pexels-photo-59519.jpeg);
+    background-size: cover;
+  background-repeat: no-repeat;
+   /* background-attachment: fixed; */
+    background-position: center;
+    height: 500px;
+    text-align: center;
+}
+
+
+
+.center {
+    display: block;
+    text-align: center;
+    background-color: #BFD8D4;
+    margin: 0 auto;
+    padding: 10px 5px;
+}
+.container {
+ margin: 0 auto;
+}
+
+.h6Forms {
+  margin: 0 0 !important; 
+  color: white;
+}
+
+.tableDiv{
+    margin: 0 10px;
+    /* padding: 10px; */
+    background-color: #FFFAE3;
+}
+table {
+    border: 1px solid black;
+    text-align: left;
+}
+
+.button {
+    font-size: 5px;
+}
+
+.recipeList {
+    font-size: 25px;
+}
+
+.flexList {
+     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #BFD8D4;
+    color: #162521;
+    margin: 5px 19%;
+}
