@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html ng-app="TravelsApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>Travels</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="/js/app.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+</head>
+<div class="nav">
+    <div class="logo">Travels</div>
+    <div class="menu"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Ei-navicon.svg/2000px-Ei-navicon.svg.png" height="49" width="49"> </div>
+</div>
+<div class="head">
+ <div class="logo2">Travels</div>
+</div>
+<body ng-controller="MainController as ctrl">
+    <div class="container">
+<div class="center">
+    <h6 class="h6Forms">Add a Travel </h6>
+        <form ng-submit="ctrl.createTravel()">
+            <div><input type="text" ng-model="ctrl.createForm.destination" placeholder="Travel destination" /></div>
+            <div><input type="text" ng-model="ctrl.createForm.climate" placeholder="Travel climate" /></div>
+           <div> <input type="text" ng-model="ctrl.createForm.dates" placeholder="Travel dates" /></div>
+            <div><input type="text" ng-model="ctrl.createForm.kid_friendly" placeholder="Travel Kid Friendly" /></div>
+            <div><input type="text" ng-model="ctrl.createForm.img" placeholder="Travel Image" /></div>
+            <!-- <input type="text" ng-model="ctrl.createForm.img" placeholder="img URL" /> -->
+            <input type="submit" value="Create New Travel" />
+        </form>
+
+        </div>
+        <!-- closes our create form -->
+
+        <div class="directions">
+            <h6>
+                <em>--click travel to view details--</em>
+            </h6>
+        </div>
+        <div class="backgroundMiddle">
+        <div class="tableDiv">
+
+            <div class="flexList" ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
+                <div class="travelList" ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.destination }} </div>
+                <!-- <td>{{travel.kid_friendly}} minutes </td> -->
+
+                <button ng-click="ctrl.deleteTravel( travel._id )">x</button>
+                <!-- <button ng-click="ctrl.chooseOneTravel( travel )">Edit</button> -->
+
+        </div>
+        </div>
+
+
+                <div class="details">
+                    <h3>Travel Info:</h3>
+                    <hr>
+                    <h4>
+                        <span> Destination: </span>{{ ctrl.travel.destination }}</h4>
+                    <h6>
+                        <span> Climate: </span> {{ ctrl.travel.climate }} </h6>
+                    <h6>
+                        <span> Kid Friendly:</span> {{ ctrl.travel.kid_friendly }}</h6>
+                    <p>
+                        <span> Dates: </span> {{ ctrl.travel.dates }}
+                    </p>
+                </div>
+
+</div>
+
+<!--  update/edit form doesnt work  -->
+<div class="center">
+    <h6 class="h6Forms">Edit Form</h6>
+
+<!-- Toggle Edit Form -->
+<form ng-show="ctrl.showForm === travel._id" ng-submit="ctrl.showEdit(travel)">
+    <input type="submit" value="Edit">
+
+</form>
+
+<!-- Edit Form -->
+<form ng-if="ctrl.showForm === travel._id" ng-submit="ctrl.editTravel(travel)">
+    <div><input placeholder={{travel.destination}} type="text" ng-model="ctrl.editData.destination"
+    ></div>
+
+    <div><input placeholder={{travel.climate}} type="text" ng-model="ctrl.editData.climate"
+    ></div>
+
+    <div><input placeholder={{travel.dates}} type="text" ng-model="ctrl.editData.dates"
+    ></div>
+
+    <div><input placeholder={{travel.kid_friendly}} type="text" ng-model="ctrl.editData.kid_friendly"
+    ></div>
+
+    <div><input placeholder={{travel.img}} type="text" ng-model="ctrl.editData.img"
+    ></div>
+
+    <button id="new-record-submit" type="submit" >EDIT</button>
+</form>
+</div>
+
+    </div>
+
+    <footer>
+         Travels Inc
+    </footer>
+</body>
+
+</html>
+
+<!-- /// reference the schema -->
+
+ destination: 
+ climate: 
+ dates: 
+ kid_friendly:
+ img: 
