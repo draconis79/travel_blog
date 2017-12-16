@@ -1,38 +1,48 @@
-const express = require('express'),
-    mongoose = require('mongoose'),
-    port = 3111 || process.env.PORT,
-    app = express(),
-    db = mongoose.connection;
+// DEPENDENCIES
+const express = require('express');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
+const app = express();
+const session = require('express-session');
+require('pretty-error').start();
 
-mongoose.Promise = global.Promise;
-const mongoURI = 'mongodb://localhost/travel_app';
+// CONFIG
+const PORT = process.env.PORT || 3000;
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/books_users_api'
 
-// Connect to Mongo
+// DB
 mongoose.connect(mongoURI, { useMongoClient: true });
+const db = mongoose.connection;
+db.on('error', (err) => console.log('Mongo error: ', err));
+db.on('connected', () => console.log('Mongo connected at: ', mongoURI));
+db.on('disconnected', () => console.log('Mongo disconnected'));
+mongoose.Promise = global.Promise;
 
-// Error / success
-db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', mongoURI));
-db.on('disconnected', () => console.log('mongo disconnected'));
-
-
-// open the connection to mongo
-db.on('open', () => {
-    console.log('Connection made!');
-});
-
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
-app.use(express.json());// returns middleware that only parses JSON
-
-
-app.use(express.static('public'));
-
-//Routes
+// CONTROLLERS
 const travelsController = require('./controllers/travelsController.js');
-app.use('/travels', travelsController);
+const usersController = require('./controllers/users.js');
+const sessionsController = require('./controllers/sessions.js');
 
-app.listen(port, () => {
+// MIDDLEWARE
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.static('public'));
+app.use(morgan('dev'));
+app.use(session({
+    secret: 'Yeah',
+    resave: true,
+    saveUninitialized: false,
+    maxAge: 2592000000
+}));
+
+
+app.use('/travels', travelsController);
+app.use('/users', usersController);
+app.use('/sessions', sessionsController);
+
+// LISTEN
+app.listen(PORT, () => {
     console.log('=======================');
-    console.log('Running on port ' + port);
+    console.log('Running on PORT ' + PORT);
     console.log('=======================');
 });
