@@ -1,6 +1,6 @@
 const express = require('express'),
     mongoose = require('mongoose'),
-    port = 3003 || process.env.PORT,
+    port = 3004 || process.env.PORT,
     app = express(),
     db = mongoose.connection;
 
@@ -30,6 +30,11 @@ app.use(express.static('public'));
 //Routes
 const travelsController = require('./controllers/travelsController.js');
 app.use('/travels', travelsController);
+const usersController = require('./controllers/users.js');
+app.use('/users', usersController);
+const sessionsController = require('./controllers/sessions.js');
+app.use('/sessions', sessionsController);
+
 
 app.listen(port, () => {
     console.log('=======================');

@@ -105,7 +105,53 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
+    // ========================================
+    // LOGIN LOGIC
+    // ========================================
 
+    this.error = null;
+    this.user = { username: " "};
+    // this.location = {};
+
+
+    // auth functions
+    this.registerUser = () => {
+        console.log('working');
+        $http({ url: '/users', method: 'post', data: this.newUserForm })
+            .then(response => {
+                console.log(response.data)
+                console.log('We have success!');
+                this.user = response.data;
+            }, ex => {
+                console.log(ex.data.err);
+                this.error = ex.statusText;
+            })
+            .catch(err => this.error = 'Server working?');
+    };
+
+    this.loginUser = () => {
+        $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
+            .then(response => {
+               
+                // console.log(respose.data.username);
+                console.log('Log in successful!');
+                console.log(respose.data);
+                this.user = response.data.user;
+                // this.location = response.data;
+            }, ex => {
+                console.log(ex.data.err);
+                this.error = ex.statusText;
+            })
+            .catch(err => this.error = 'Server broke?');
+    };
+
+    this.logout = () => {
+        $http({ url: '/sessions/logout', method: 'delete' })
+            .then((response) => {
+                console.log(response.data);
+                this.user = null;
+            });
+    };
 
 
 
