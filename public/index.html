@@ -22,19 +22,22 @@
 </div>
 <body ng-controller="MainController as ctrl">
     <div class="container">
-<div class="center">
+<div class="card" style="width: 20rem;">
     <h6 class="h6Forms">Add a Travel </h6>
         <form ng-submit="ctrl.createTravel()">
-            <div><input type="text" ng-model="ctrl.createForm.destination" placeholder="Travel destination" /></div>
-            <div><input type="text" ng-model="ctrl.createForm.climate" placeholder="Travel climate" /></div>
-           <div> <input type="text" ng-model="ctrl.createForm.dates" placeholder="Travel dates" /></div>
-            <div><input type="text" ng-model="ctrl.createForm.kid_friendly" placeholder="Travel Kid Friendly" /></div>
-            <div><input type="text" ng-model="ctrl.createForm.img" placeholder="Travel Image" /></div>
+            <div class="card-body"><input type="text" ng-model="ctrl.createForm.img" placeholder="Travel Image" /></div>
+            <div class="card-body"><input type="text" ng-model="ctrl.createForm.destination" placeholder="Travel destination" /></div>
+            <div class="card-body"><input type="text" ng-model="ctrl.createForm.climate" placeholder="Travel climate" /></div>
+           <div class="card-body"> <input type="text" ng-model="ctrl.createForm.dates" placeholder="Travel dates" /></div>
+            <div class="card-body"><input type="text" ng-model="ctrl.createForm.kid_friendly" placeholder="Travel Kid Friendly" /></div>
+
             <!-- <input type="text" ng-model="ctrl.createForm.img" placeholder="img URL" /> -->
             <input type="submit" value="Create New Travel" />
         </form>
 
         </div>
+
+
         <!-- closes our create form -->
 
         <div class="directions">
