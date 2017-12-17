@@ -2,12 +2,61 @@ const app = angular.module('TravelsApp', []);
 
 app.controller('MainController', ['$http', function ($http) {
 
-    this.createForm = {};
+
+    // ========================================
+    // LOGIN LOGIC
+    // ========================================
+
+    this.error = null;
+    this.user = {};
+    this.location = {};
+
+    // auth functions
+    this.registerUser = () => {
+        console.log('working');
+        $http({ url: '/users', method: 'post', data: this.newUserForm })
+            .then(response => {
+                console.log('We have success!');
+                this.user = response.data;
+            }, ex => {
+                console.log(ex.data.err);
+                this.error = ex.statusText;
+            })
+            .catch(err => this.error = 'Server working?');
+    };
+
+    this.loginUser = () => {
+        $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
+            .then(response => {
+                console.log('Log in successful!');
+                console.log(respose.data);
+                this.user = response.data.user;
+                // this.location = response.data;
+            }, ex => {
+                console.log(ex.data.err);
+                this.error = ex.statusText;
+            })
+            .catch(err => this.error = 'Server broke?');
+    };
+
+    this.logout = () => {
+        $http({ url: '/sessions/logout', method: 'delete' })
+            .then((response) => {
+                console.log(response.data);
+                this.user = null;
+            });
+    };
+
+
+
+    //-----------------CRUD ROUTES below --------------
+    //------------------------------------------------
+
 
     this.travel = '';
-
     this.travels = [];
 
+    this.createForm = {};
 
     this.createTravel = () => {
         $http({
@@ -37,9 +86,6 @@ app.controller('MainController', ['$http', function ($http) {
     //load immediately on page load
     this.getTravels();
 
-    this.deleteTravel = (id) => {
-        console.log("I'm going to delete you", id);
-    }
 
     this.deleteTravel = (id) => {
         $http({
@@ -54,43 +100,45 @@ app.controller('MainController', ['$http', function ($http) {
             }).catch(err => console.error('Catch: ', err));
     }
 
-/////----------edit doesnt work------------------------------------
+/////------------edit below------------------------------
 
-    // Show Edit Form
+    // Update travel
     this.showEdit = (travel) => {
-        this.editData = {};
-        this.showForm = travel._id;
+        this.editModal = true;
+        this.currentTravelEdit = angular.copy(travel)
     }
 
-    // Edit travel
-    this.editTravel = (travel) => {
-        console.log("Editing: ", travel._id);
+    this.editTravel = () => {
+        //console.log('edit submit...', this.currentTravelEdit);
         $http({
-            method: "put",
-            url: "/travels/" + travel._id,
-            data: this.editData
+            method: 'PUT',
+            url: '/travels/' + this.currentTravelEdit._id,
+            data: this.currentTravelEdit
         }).then(response => {
-            console.log(this.editData);
-            this.loadTravels();
-            this.showForm = {};
-            console.log("Response: ", response);
-        }, error => {
-            console.error(error);
-        }).catch(err => {
-            console.error("Catch: ", err);
-        })
+            console.log('data:', response.data);
+            const updateByIndex = this.travels.findIndex(travel => travel._id === response.data._id)
+            console.log('update ind:', updateByIndex);
+            this.travels.splice(updateByIndex, 1, response.data)
+        }).catch(err => console.error('Catch', err));
+        this.editModal = false;
+        this.currentTravelEdit = {};
+    };
+
+    this.dontUpdate = () => {
+        this.editModal = false;
+        this.currentTravelEdit = {};
     }
-/////-------------------------------------------------------------
+/////------end of editting--------------------------------
 
 
-
+/////---------------choose travel info---------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
         this.editData = travel;
         // console.log(this.travel.destination);
     }
 
-
+/////---------------Add travel-----------------------------
     this.addTravel = (travel) => {
 
         $http({
@@ -132,7 +180,7 @@ app.controller('MainController', ['$http', function ($http) {
     this.loginUser = () => {
         $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
             .then(response => {
-               
+
                 // console.log(respose.data.username);
                 console.log('Log in successful!');
                 console.log(respose.data);
@@ -153,6 +201,20 @@ app.controller('MainController', ['$http', function ($http) {
             });
     };
 
+    //------------Modal---open/close-----------------
+        this.showLoginModal = () => {
+            console.log('opening model');
+            this.modelOpenLogin = true;
+            // this.modelOpen = false;
+        }
+
+        this.closeLoginModal = () => {
+            console.log('opening model');
+            this.modelOpenLogin = false;
+
+        }
+
+//-------------end--side nav----------------
 
 
 }]);

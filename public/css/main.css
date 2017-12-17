@@ -14,7 +14,7 @@ body {
 }
 ul {
 	margin: 0 0;
-	
+
 }
 li {
 list-style-type: square;
@@ -60,9 +60,7 @@ list-style-type: square;
     color: #162521;
 }
 
-.backgroundMiddle {
-    background-color: #FFFAE3;
-}
+
 
 .right {
 	width:20%;
@@ -109,15 +107,20 @@ list-style-type: square;
     color: white;
 }
 
+.loginAtag {
+    margin: 15% 0;
+}
 
 .menu {
+    display: flex;
+    flex-direction: row;
     margin: 0 10px ;
     padding: 2px 10px 2px 2px;
-    width: 50px;
+    width: 100px;
 }
 .container {
   margin: 10px;
-  background-color:#FFFAE3;
+
 }
 
 footer {
@@ -158,15 +161,12 @@ text-align: center;
  margin: 0 auto;
 }
 
-.h6Forms {
-  margin: 0 0 !important; 
-  color: white;
-}
+
 
 .tableDiv{
-    margin: 0 10px;
-    /* padding: 10px; */
-    background-color: #FFFAE3;
+    margin: 0 0;
+
+
 }
 table {
     border: 1px solid black;
@@ -177,7 +177,7 @@ table {
     font-size: 5px;
 }
 
-.recipeList {
+.travelList {
     font-size: 25px;
 }
 
@@ -188,4 +188,47 @@ table {
     background-color: #BFD8D4;
     color: #162521;
     margin: 5px 19%;
+    padding: 2px 5px;
+    border: 1px solid black;
+}
+
+
+/* //-----modal---------------- */
+
+
+.modal {
+	background-color: rgba(0,0,0,.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+	overflow: auto;
+	display: none;
+}
+
+.modal-text-box {
+  position:fixed;
+  text-align: center;
+	background-color: white;
+  top: 30%;
+  left:30%;
+	height: 398px;
+	width: 498px;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px rgba(0,0,0,.2);
+
+}
+
+.editModal {
+  display: inline-block;
+}
+
+.editModalForm {
+    margin: 5%;
+}
+
+.modelOpenLogin {
+  display: inline-block;
 }

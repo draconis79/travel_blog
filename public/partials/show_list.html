@@ -1,0 +1,15 @@
+
+
+
+
+<div class="flexList" ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
+    <div ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.destination }} </div>
+    <div>
+    <button href="/about"  ng-click="ctrl.showEdit( travel )">edit</button>
+    <button ng-click="ctrl.deleteTravel( travel._id )">x</button>
+</div>
+
+</div>
+
+
+

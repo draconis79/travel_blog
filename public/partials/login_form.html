@@ -1,0 +1,41 @@
+
+
+<!-- modal -->
+<div class="modal" ng-class="(ctrl.modelOpenLogin ? 'modelOpenLogin' : '' )">
+<div class="modal-text-box">
+
+    <small>Register</small>
+        <form ng-submit='ctrl.registerUser()'>
+            <input type="text" placeholder="username" ng-model="ctrl.newUserForm.username" />
+            <input type="password" placeholder="password" ng-model="ctrl.newUserForm.password" />
+            <input type="submit" />
+        </form>
+
+    <small>Log in</small>
+        <form ng-submit='ctrl.loginUser()'>
+            <input type="text" placeholder="username" ng-model="ctrl.loginForm.username" />
+            <input type="password" placeholder="password" ng-model="ctrl.loginForm.password" />
+            <input type="submit" />
+        </form>
+
+    <form ng-if='ctrl.user' ng-submit='ctrl.logout()'>
+        <input type='submit' value='logout' />
+    </form>
+
+    <h3 ng-if='!ctrl.user'>Register or log in!</h3>
+
+        <div ng-if='ctrl.user'>
+            <h3>Hi, {{ ctrl.user.username }} !</h3>
+        
+        </div>
+
+<button ng-click="ctrl.closeLoginModal()">Return to Website</button>
+             
+        </div>
+    </div>
+</div>
+
+
+   
+</div>
+<!--end of side nav- -->
