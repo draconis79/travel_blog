@@ -8,7 +8,7 @@ require('pretty-error').start();
 
 // CONFIG
 const PORT = process.env.PORT || 3000;
-const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/books_users_api'
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/travel_users_api'
 
 // DB
 mongoose.connect(mongoURI, { useMongoClient: true });
@@ -39,6 +39,7 @@ app.use(session({
 app.use('/travels', travelsController);
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
+
 
 // LISTEN
 app.listen(PORT, () => {
