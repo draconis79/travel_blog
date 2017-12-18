@@ -201,18 +201,19 @@ app.controller('MainController', ['$http', function ($http) {
             });
     };
 
-    //------------Modal---open/close-----------------
-        this.showLoginModal = () => {
-            console.log('opening model');
-            this.modelOpenLogin = true;
-            // this.modelOpen = false;
-        }
+//------------Modal---open/close-----------------
+    this.showLoginModal = () => {
+        console.log('opening model');
+        this.modelOpenLogin = true;
+        // this.modelOpen = false;
+    }
 
-        this.closeLoginModal = () => {
-            console.log('opening model');
-            this.modelOpenLogin = false;
+    this.closeLoginModal = () => {
+        console.log('opening model');
+        this.modelOpenLogin = false;
 
-        }
+    }
+
 
 //-------------end--side nav----------------
 

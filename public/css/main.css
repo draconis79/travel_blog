@@ -70,6 +70,41 @@ list-style-type: square;
 	width:60%;
 }
 
+.usersForm
+{
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+  /*background-color: black;*/
+  color: white;
+}
+
+.loginStuff
+{
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 2%;
+  text-align: center;
+  /*background-color: black;*/
+}
+
+header
+{
+      background-color: #BB999C;
+}
+
+
+.sub
+{
+  width: 20%;
+  margin-left: -1%;
+  border-radius: 0 10px 10px 0;
+}
+
+.logout
+{
+  border-radius: 6px;
+}
 .NewDataForm {
 	width: 94%;
 	border: 1px solid black;
@@ -85,7 +120,7 @@ list-style-type: square;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #BB999C;;
+    background-color: #BB999C;
     color: #162521;
 }
 

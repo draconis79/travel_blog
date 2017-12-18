@@ -9,7 +9,13 @@ const User = require('../models/users.js');
 const Location = require('../models/travels.js');
 
 router.post('/login', async (req, res) => {
+<<<<<<< HEAD
     try {
+=======
+
+    try {
+
+>>>>>>> 7eb6eace9c69daa04548f246c273c02e86ed6ad5
         const user = await User.findOne({ username: req.body.username }); // a document
         const location = await Location.find({ user: user._id });
         console.log('What uuuuuuup user? ', user);
