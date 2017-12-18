@@ -1,20 +1,24 @@
 
 
 <!-- modal -->
-<div class="modal" ng-class="(ctrl.modelOpenLogin ? 'modelOpenLogin' : '' )">
+<div class="modalType" ng-class="(ctrl.modalOpenLogin ? 'modalOpenLogin' : '' )">
 <div class="modal-text-box">
 
-    <small>Register</small>
-        <form ng-submit='ctrl.registerUser()'>
-            <input type="text" placeholder="username" ng-model="ctrl.newUserForm.username" />
-            <input type="password" placeholder="password" ng-model="ctrl.newUserForm.password" />
-            <input type="submit" />
-        </form>
+    
 
-    <small>Log in</small>
+    <h2 class="modalH2">Login</h2>
         <form ng-submit='ctrl.loginUser()'>
-            <input type="text" placeholder="username" ng-model="ctrl.loginForm.username" />
-            <input type="password" placeholder="password" ng-model="ctrl.loginForm.password" />
+            <div class="form-group">
+                <label for="pwd">Username:</label>
+                <input type="text" class="form-control" placeholder="username" ng-model="ctrl.loginForm.username" />
+            </div>
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" class="form-control" placeholder="password" ng-model="ctrl.loginForm.password" />
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
             <input type="submit" />
         </form>
 
@@ -22,20 +26,10 @@
         <input type='submit' value='logout' />
     </form>
 
-    <h3 ng-if='!ctrl.user'>Register or log in!</h3>
-
-        <div ng-if='ctrl.user'>
-            <h3>Hi, {{ ctrl.user.username }} !</h3>
-        
-        </div>
-
+    
 <button ng-click="ctrl.closeLoginModal()">Return to Website</button>
              
         </div>
     </div>
-</div>
 
 
-   
-</div>
-<!--end of side nav- -->
