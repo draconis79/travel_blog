@@ -18,11 +18,13 @@ app.controller('MainController', ['$http', function ($http) {
             .then(response => {
                 console.log('We have success!');
                 this.user = response.data;
+                
             }, ex => {
                 console.log(ex.data.err);
                 this.error = ex.statusText;
             })
             .catch(err => this.error = 'Server working?');
+        closeLoginModal();
     };
 
     this.loginUser = () => {
