@@ -40,6 +40,7 @@ app.use('/travels', travelsController);
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 
+
 // LISTEN
 app.listen(PORT, () => {
     console.log('=======================');
