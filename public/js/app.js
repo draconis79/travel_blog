@@ -155,6 +155,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
+
 //------------Modal---open/close-----------------
     this.showLoginModal = () => {
         console.log('opening model');
@@ -303,9 +304,6 @@ app.controller('ItinerariesController', function () {
     //     marker.setMap(map);
     // }
 
-
-
-
-
-
 }]);
+
+//////////// WHATS UP ////////////////////////
