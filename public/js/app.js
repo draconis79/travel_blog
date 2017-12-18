@@ -1,4 +1,4 @@
-const app = angular.module('TravelsApp', []);
+const app = angular.module('TravelsApp', ['ngRoute']);
 
 app.controller('MainController', ['$http', function ($http) {
 
@@ -204,18 +204,154 @@ app.controller('MainController', ['$http', function ($http) {
 //------------Modal---open/close-----------------
     this.showLoginModal = () => {
         console.log('opening model');
-        this.modelOpenLogin = true;
-        // this.modelOpen = false;
+        this.modalOpenLogin = true;
+
     }
 
     this.closeLoginModal = () => {
-        console.log('opening model');
-        this.modelOpenLogin = false;
+        console.log('closing model');
+        this.modalOpenLogin = false;
 
+    }
+    this.showRegisterModal = () => {
+        console.log('opening register model');
+        this.modalOpenRegister = true;
+    }
+
+    this.closeRegisterModal = () => {
+        console.log('closing register model');
+        this.modalOpenRegister = false;
+
+    }
+//-----------side nav ---------------------
+    this.openNav = () => {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    this.closeNav = () => {
+            document.getElementById("mySidenav").style.width = "0";
+    }
+//-------------end--side nav----------------
+
+
+//-------------------------------------------
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
     }
 
 
-//-------------end--side nav----------------
+// ------------ page routes ------------------
+
+
+
+app.controller('ResturantsController', function () {
+  this.resturants = 'Tartine';
+});
+
+app.controller('GalleriesController', function () {
+  // this.phone = '555-1212';
+});
+
+app.controller('HotelsController', function () {
+  // this.phone = '555-1212';
+});
+
+app.controller('ItinerariesController', function () {
+  // this.phone = '555-1212';
+});
+
+    app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
+      // Enables Push State
+       $locationProvider.html5Mode({ enabled: true });
+
+       // ROUTES
+       $routeProvider.when('/itineraries', {
+        templateUrl: 'itineraries.html',
+        controller: 'ItinerariesController',
+        controllerAs: 'ctrl'
+      });
+
+      $routeProvider.when('/restuarants', {
+       templateUrl: 'restuarants.html',
+       controller: 'ResturantsController',
+       controllerAs: 'ctrl'
+     });
+
+     $routeProvider.when('/hotels', {
+      templateUrl: 'hotels.html',
+      controller: 'HotelsController',
+      controllerAs: 'ctrl'
+    });
+
+    $routeProvider.when('/galleries', {
+      templateUrl: 'galleries.html',
+      controller: 'GalleriesController',
+      controllerAs: 'ctrl'
+    });
+    $routeProvider.otherwise({
+      // if browser url doesn't match any of the above...
+      // here you can do something like above if you'd like with a template and a controller
+      redirectTo: '/' // or you can redirect to another url.
+      // redirection can happen in any 'when' action; I just happened to do it here.
+      // I could have put it in one of the above sections too
+    });
+
+}]);
+
+//-----google map API---------------------
+
+
+    //To use this code on your website, get a free API key from Google.
+    // Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+
+    // function myMap() {
+    //     myCenter = new google.maps.LatLng(41.878114, -87.629798);
+    //     var mapOptions = {
+    //         center: myCenter,
+    //         zoom: 12, scrollwheel: false, draggable: false,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP
+    //     };
+    //     var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+    //     var marker = new google.maps.Marker({
+    //         position: myCenter,
+    //     });
+    //     marker.setMap(map);
+    // }
+
+
+
+
 
 
 }]);
