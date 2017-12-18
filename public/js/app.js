@@ -1,13 +1,64 @@
-const app = angular.module('TravelsApp', []);
+const app = angular.module('TravelsApp', ['ngRoute']);
 
 app.controller('MainController', ['$http', function ($http) {
 
-    this.createForm = {};
+
+    // ========================================
+    // LOGIN LOGIC
+    // ========================================
+
+    this.error = null;
+    this.user = {};
+    this.location = {};
+
+    // auth functions
+    this.registerUser = () => {
+        console.log('working');
+        $http({ url: '/users', method: 'post', data: this.newUserForm })
+            .then(response => {
+                console.log('We have success!');
+                this.user = response.data;
+                
+            }, ex => {
+                console.log(ex.data.err);
+                this.error = ex.statusText;
+            })
+            .catch(err => this.error = 'Server working?');
+        closeLoginModal();
+    };
+
+    this.loginUser = () => {
+        $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
+            .then(response => {
+                console.log('Log in successful!');
+                console.log(respose.data);
+                this.user = response.data.user;
+                // this.location = response.data;
+            }, ex => {
+                console.log(ex.data.err);
+                this.error = ex.statusText;
+            })
+            .catch(err => this.error = 'Server broke?');
+    };
+
+    this.logout = () => {
+        $http({ url: '/sessions/logout', method: 'delete' })
+            .then((response) => {
+                console.log(response.data);
+                this.user = null;
+            });
+    };
+
+
+
+    //-----------------CRUD ROUTES below --------------
+    //------------------------------------------------
+
 
     this.travel = '';
-
     this.travels = [];
 
+    this.createForm = {};
 
     this.createTravel = () => {
         $http({
@@ -37,9 +88,6 @@ app.controller('MainController', ['$http', function ($http) {
     //load immediately on page load
     this.getTravels();
 
-    this.deleteTravel = (id) => {
-        console.log("I'm going to delete you", id);
-    }
 
     this.deleteTravel = (id) => {
         $http({
@@ -54,43 +102,45 @@ app.controller('MainController', ['$http', function ($http) {
             }).catch(err => console.error('Catch: ', err));
     }
 
-/////----------edit doesnt work------------------------------------
+/////------------edit below------------------------------
 
-    // Show Edit Form
+    // Update travel
     this.showEdit = (travel) => {
-        this.editData = {};
-        this.showForm = travel._id;
+        this.editModal = true;
+        this.currentTravelEdit = angular.copy(travel)
     }
 
-    // Edit travel
-    this.editTravel = (travel) => {
-        console.log("Editing: ", travel._id);
+    this.editTravel = () => {
+        //console.log('edit submit...', this.currentTravelEdit);
         $http({
-            method: "put",
-            url: "/travels/" + travel._id,
-            data: this.editData
+            method: 'PUT',
+            url: '/travels/' + this.currentTravelEdit._id,
+            data: this.currentTravelEdit
         }).then(response => {
-            console.log(this.editData);
-            this.loadTravels();
-            this.showForm = {};
-            console.log("Response: ", response);
-        }, error => {
-            console.error(error);
-        }).catch(err => {
-            console.error("Catch: ", err);
-        })
+            console.log('data:', response.data);
+            const updateByIndex = this.travels.findIndex(travel => travel._id === response.data._id)
+            console.log('update ind:', updateByIndex);
+            this.travels.splice(updateByIndex, 1, response.data)
+        }).catch(err => console.error('Catch', err));
+        this.editModal = false;
+        this.currentTravelEdit = {};
+    };
+
+    this.dontUpdate = () => {
+        this.editModal = false;
+        this.currentTravelEdit = {};
     }
-/////-------------------------------------------------------------
+/////------end of editting--------------------------------
 
 
-
+/////---------------choose travel info---------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
         this.editData = travel;
         // console.log(this.travel.destination);
     }
 
-
+/////---------------Add travel-----------------------------
     this.addTravel = (travel) => {
 
         $http({
@@ -105,55 +155,154 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
-    // ========================================
-    // LOGIN LOGIC
-    // ========================================
 
-    this.error = null;
-    this.user = { username: " "};
-    // this.location = {};
+//------------Modal---open/close-----------------
+    this.showLoginModal = () => {
+        console.log('opening model');
+        this.modalOpenLogin = true;
 
+    }
 
-    // auth functions
-    this.registerUser = () => {
-        console.log('working');
-        $http({ url: '/users', method: 'post', data: this.newUserForm })
-            .then(response => {
-                console.log(response.data)
-                console.log('We have success!');
-                this.user = response.data;
-            }, ex => {
-                console.log(ex.data.err);
-                this.error = ex.statusText;
-            })
-            .catch(err => this.error = 'Server working?');
-    };
+    this.closeLoginModal = () => {
+        console.log('closing model');
+        this.modalOpenLogin = false;
 
-    this.loginUser = () => {
-        $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
-            .then(response => {
-               
-                // console.log(respose.data.username);
-                console.log('Log in successful!');
-                console.log(respose.data);
-                this.user = response.data.user;
-                // this.location = response.data;
-            }, ex => {
-                console.log(ex.data.err);
-                this.error = ex.statusText;
-            })
-            .catch(err => this.error = 'Server broke?');
-    };
+    }
+    this.showRegisterModal = () => {
+        console.log('opening register model');
+        this.modalOpenRegister = true;
+    }
 
-    this.logout = () => {
-        $http({ url: '/sessions/logout', method: 'delete' })
-            .then((response) => {
-                console.log(response.data);
-                this.user = null;
-            });
-    };
+    this.closeRegisterModal = () => {
+        console.log('closing register model');
+        this.modalOpenRegister = false;
+
+    }
+//-----------side nav ---------------------
+    this.openNav = () => {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    this.closeNav = () => {
+            document.getElementById("mySidenav").style.width = "0";
+    }
+//-------------end--side nav----------------
 
 
+//-------------------------------------------
+    // Automatic Slideshow - change image every 4 seconds
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 4000);
+    }
+
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    var modal = document.getElementById('ticketModal');
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+// ------------ page routes ------------------
+
+
+
+app.controller('ResturantsController', function () {
+  this.resturants = 'Tartine';
+});
+
+app.controller('GalleriesController', function () {
+  // this.phone = '555-1212';
+});
+
+app.controller('HotelsController', function () {
+  // this.phone = '555-1212';
+});
+
+app.controller('ItinerariesController', function () {
+  // this.phone = '555-1212';
+});
+
+    app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
+      // Enables Push State
+       $locationProvider.html5Mode({ enabled: true });
+
+       // ROUTES
+       $routeProvider.when('/itineraries', {
+        templateUrl: 'itineraries.html',
+        controller: 'ItinerariesController',
+        controllerAs: 'ctrl'
+      });
+
+      $routeProvider.when('/restuarants', {
+       templateUrl: 'restuarants.html',
+       controller: 'ResturantsController',
+       controllerAs: 'ctrl'
+     });
+
+     $routeProvider.when('/hotels', {
+      templateUrl: 'hotels.html',
+      controller: 'HotelsController',
+      controllerAs: 'ctrl'
+    });
+
+    $routeProvider.when('/galleries', {
+      templateUrl: 'galleries.html',
+      controller: 'GalleriesController',
+      controllerAs: 'ctrl'
+    });
+    $routeProvider.otherwise({
+      // if browser url doesn't match any of the above...
+      // here you can do something like above if you'd like with a template and a controller
+      redirectTo: '/' // or you can redirect to another url.
+      // redirection can happen in any 'when' action; I just happened to do it here.
+      // I could have put it in one of the above sections too
+    });
+
+}]);
+
+//-----google map API---------------------
+
+
+    //To use this code on your website, get a free API key from Google.
+    // Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+
+    // function myMap() {
+    //     myCenter = new google.maps.LatLng(41.878114, -87.629798);
+    //     var mapOptions = {
+    //         center: myCenter,
+    //         zoom: 12, scrollwheel: false, draggable: false,
+    //         mapTypeId: google.maps.MapTypeId.ROADMAP
+    //     };
+    //     var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
+
+    //     var marker = new google.maps.Marker({
+    //         position: myCenter,
+    //     });
+    //     marker.setMap(map);
+    // }
 
 }]);
 
