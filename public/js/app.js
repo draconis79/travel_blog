@@ -24,7 +24,7 @@ app.controller('MainController', ['$http', function ($http) {
                 this.error = ex.statusText;
             })
             .catch(err => this.error = 'Server working?');
-        closeLoginModal();
+        
     };
 
     this.loginUser = () => {
@@ -180,7 +180,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 //-----------side nav ---------------------
     this.openNav = () => {
-        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.width = "350px";
     }
 
     this.closeNav = () => {
@@ -192,9 +192,9 @@ app.controller('MainController', ['$http', function ($http) {
 //-------------------------------------------
     // Automatic Slideshow - change image every 4 seconds
     var myIndex = 0;
-    carousel();
+   
 
-    function carousel() {
+     this.carousel = () => {
         var i;
         var x = document.getElementsByClassName("mySlides");
         for (i = 0; i < x.length; i++) {
@@ -203,11 +203,11 @@ app.controller('MainController', ['$http', function ($http) {
         myIndex++;
         if (myIndex > x.length) { myIndex = 1 }
         x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 4000);
+        setTimeout(this.carousel, 4000);
     }
-
+    this.carousel();
     // Used to toggle the menu on small screens when clicking on the menu button
-    function myFunction() {
+    this.myFunction = () => {
         var x = document.getElementById("navDemo");
         if (x.className.indexOf("w3-show") == -1) {
             x.className += " w3-show";
