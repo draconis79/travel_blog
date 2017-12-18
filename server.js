@@ -1,3 +1,4 @@
+
 // DEPENDENCIES
 const express = require('express');
 const mongoose = require('mongoose');
@@ -11,6 +12,9 @@ const PORT = process.env.PORT || 3000;
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/travel_users_api'
 
 // DB
+
+// Connect to Mongo
+
 mongoose.connect(mongoURI, { useMongoClient: true });
 const db = mongoose.connection;
 db.on('error', (err) => console.log('Mongo error: ', err));

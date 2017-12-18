@@ -1,4 +1,4 @@
-const app = angular.module('TravelsApp', []);
+const app = angular.module('TravelsApp', ['ngRoute']);
 
 app.controller('MainController', ['$http', function ($http) {
 
@@ -18,11 +18,13 @@ app.controller('MainController', ['$http', function ($http) {
             .then(response => {
                 console.log('We have success!');
                 this.user = response.data;
+                
             }, ex => {
                 console.log(ex.data.err);
                 this.error = ex.statusText;
             })
             .catch(err => this.error = 'Server working?');
+        closeLoginModal();
     };
 
     this.loginUser = () => {
@@ -47,7 +49,7 @@ app.controller('MainController', ['$http', function ($http) {
             });
     };
 
-    
+
 
     //-----------------CRUD ROUTES below --------------
     //------------------------------------------------
@@ -153,6 +155,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
+
 //------------Modal---open/close-----------------
     this.showLoginModal = () => {
         console.log('opening model');
@@ -163,7 +166,7 @@ app.controller('MainController', ['$http', function ($http) {
     this.closeLoginModal = () => {
         console.log('closing model');
         this.modalOpenLogin = false;
-        
+
     }
     this.showRegisterModal = () => {
         console.log('opening register model');
@@ -221,9 +224,67 @@ app.controller('MainController', ['$http', function ($http) {
         }
     }
 
-    
+
+// ------------ page routes ------------------
+
+
+
+app.controller('ResturantsController', function () {
+  this.resturants = 'Tartine';
+});
+
+app.controller('GalleriesController', function () {
+  // this.phone = '555-1212';
+});
+
+app.controller('HotelsController', function () {
+  // this.phone = '555-1212';
+});
+
+app.controller('ItinerariesController', function () {
+  // this.phone = '555-1212';
+});
+
+    app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
+      // Enables Push State
+       $locationProvider.html5Mode({ enabled: true });
+
+       // ROUTES
+       $routeProvider.when('/itineraries', {
+        templateUrl: 'itineraries.html',
+        controller: 'ItinerariesController',
+        controllerAs: 'ctrl'
+      });
+
+      $routeProvider.when('/restuarants', {
+       templateUrl: 'restuarants.html',
+       controller: 'ResturantsController',
+       controllerAs: 'ctrl'
+     });
+
+     $routeProvider.when('/hotels', {
+      templateUrl: 'hotels.html',
+      controller: 'HotelsController',
+      controllerAs: 'ctrl'
+    });
+
+    $routeProvider.when('/galleries', {
+      templateUrl: 'galleries.html',
+      controller: 'GalleriesController',
+      controllerAs: 'ctrl'
+    });
+    $routeProvider.otherwise({
+      // if browser url doesn't match any of the above...
+      // here you can do something like above if you'd like with a template and a controller
+      redirectTo: '/' // or you can redirect to another url.
+      // redirection can happen in any 'when' action; I just happened to do it here.
+      // I could have put it in one of the above sections too
+    });
+
+}]);
+
 //-----google map API---------------------
-       
+
 
     //To use this code on your website, get a free API key from Google.
     // Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
@@ -243,9 +304,6 @@ app.controller('MainController', ['$http', function ($http) {
     //     marker.setMap(map);
     // }
 
-
-
-
-
-
 }]);
+
+//////////// WHATS UP ////////////////////////
