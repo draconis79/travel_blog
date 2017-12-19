@@ -8,7 +8,7 @@ app.controller('MainController', ['$http', function ($http) {
     // ========================================
 
     this.error = null;
-    this.user = {};
+    this.user = false;
     this.location = {};
 
     // auth functions
@@ -18,21 +18,25 @@ app.controller('MainController', ['$http', function ($http) {
             .then(response => {
                 console.log('We have success!');
                 this.user = response.data;
-                
+                this.closeRegisterModal();
             }, ex => {
+                console.log('user already exists');
                 console.log(ex.data.err);
                 this.error = ex.statusText;
             })
             .catch(err => this.error = 'Server working?');
-        closeLoginModal();
+
     };
 
     this.loginUser = () => {
         $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
-            .then(response => {
+            .then((response) => {
+
                 console.log('Log in successful!');
-                console.log(respose.data);
+                console.log(response.data);
                 this.user = response.data.user;
+                console.log(this.user);
+                this.closeLoginModal();
                 // this.location = response.data;
             }, ex => {
                 console.log(ex.data.err);
