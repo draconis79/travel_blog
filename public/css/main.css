@@ -1,7 +1,8 @@
 
 body {
   margin: 0 auto;
-  font-family: "Lato", sans-serif
+  /*font-family: "Lato", sans-serif*/
+  font-family: 'Open Sans Condensed', sans-serif;
 }
 
 
@@ -15,13 +16,15 @@ body {
 }
 ul {
 	margin: 0 0;
-	
+
 }
 li {
 list-style-type: square;
 }
 
-
+textarea {
+   resize: none;
+}
 
 .centerTop {
 	text-align: center;
@@ -54,13 +57,25 @@ list-style-type: square;
 
 .details {
 	border: 1px solid black;
-	/* width: 90%; */
+    /* width: 30%; */
+    /* min-width: 100px; */
+    max-width: 350px;
 	padding: 1%;
-    margin: 2% 20% ;
-    background-color: #BFD8D4;
+    margin: 10px 10px ;
+    /* background-color: #BFD8D4; */
     color: #162521;
+    letter-spacing: .1px;
+    text-align: justify;
+    align-content: stretch;
+
 }
 
+.createForm {
+    width: 100%;
+    text-align: center;
+    padding: 5px 10%;
+
+}
 
 
 .right {
@@ -95,14 +110,14 @@ list-style-type: square;
     font-size: 30px;
     padding: 5px;
     width: 20%;
-    font-family: 'Times New Roman';
-    font-style: oblique;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-style: normal;
 }
 
 
 .logo2 {
-     font-family: 'Times New Roman';
-    font-style: oblique;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-style: normal;
     padding-top: 180px;
     font-size: 90px;
     color: white;
@@ -243,7 +258,7 @@ list-style-type: square;
 .center {
     display: block;
     text-align: center;
-    background-color: #BFD8D4;
+    /* background-color: #BFD8D4; */
     margin: 0 auto;
     padding: 10px 5px;
 }
@@ -271,12 +286,24 @@ table {
 .flexList {
      display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background-color: #BFD8D4;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    /* background-color: #BFD8D4; */
     color: #162521;
-    margin: 5px 19%;
-    padding: 2px 5px;
-    border: 1px solid black;
+    margin: 5px 5px;
+    padding: 2px 5%;
+    height: auto;
+    min-width:450px;
+    /* border: 1px solid black; */
+}
+
+.ng-scope {
+    margin: 0 0;
+}
+
+.climate {
+    margin: 0 0;
 }
 
 .mySlides {
