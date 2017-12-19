@@ -51,8 +51,7 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 
-    //-----------------CRUD ROUTES below --------------
-    //------------------------------------------------
+    //-----CRUD ROUTES below -------
 
 
     this.travel = '';
@@ -102,7 +101,7 @@ app.controller('MainController', ['$http', function ($http) {
             }).catch(err => console.error('Catch: ', err));
     }
 
-/////------------edit below------------------------------
+/////------------edit below--------
 
     // Update travel
     this.showEdit = (travel) => {
@@ -135,17 +134,16 @@ app.controller('MainController', ['$http', function ($http) {
         this.editModal = false;
         this.currentTravelEdit = {};
     }
-/////------end of editting--------------------------------
+/////-end of editting-----------------
 
-
-/////---------------choose travel info---------------------
+/////--choose travel info-------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
         this.editData = travel;
         // console.log(this.travel.destination);
     }
 
-/////---------------Add travel-----------------------------
+/////-Add travel---
     this.addTravel = (travel) => {
 
         $http({
@@ -161,7 +159,7 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 
-//------------Modal---open/close-----------------
+//-Modal---open/close------------------
     this.showLoginModal = () => {
         console.log('opening model');
         this.modalOpenLogin = true;
@@ -183,7 +181,7 @@ app.controller('MainController', ['$http', function ($http) {
         this.modalOpenRegister = false;
 
     }
-//-----------side nav ---------------------
+//--side nav ------------------
     this.openNav = () => {
         document.getElementById("mySidenav").style.width = "350px";
     }
@@ -191,7 +189,7 @@ app.controller('MainController', ['$http', function ($http) {
     this.closeNav = () => {
             document.getElementById("mySidenav").style.width = "0";
     }
-//-------------end--side nav----------------
+//--end--side nav----------------
 
 
 //-------------------------------------------
@@ -230,8 +228,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
-// ------------ page routes ------------------
-
+// -- page routes ------------------
 
 
 app.controller('ResturantsController', function () {

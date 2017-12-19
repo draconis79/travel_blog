@@ -18,7 +18,7 @@
 
 </head>
 
-<body ng-controller="MainController as ctrl">
+<body ng-app="TravelsApp" ng-controller="MainController as ctrl">
 
     <!--//////  Partials login-form ////-->
     <div ng-include="'partials/login_form.html'"></div>
@@ -41,6 +41,7 @@
     </div> -->
 <!--  -->
     <!-- //main picture logo -->
+
 
     <div ng-view></div>
 
@@ -204,16 +205,7 @@
 
             </div>
        
-            <!-- <div class="details">
-                <h3>Travel Info:</h3>
-                <hr>
-                <h4><span> Destination: </span>{{ ctrl.travel.destination }}</h4>
-                <h6><span> Climate: </span> {{ ctrl.travel.climate }} </h6>
-                <h6><span> Kid Friendly:</span> {{ ctrl.travel.kid_friendly }}</h6>
-                <p><span> Dates: </span> {{ ctrl.travel.dates }}</p>
-                <img style="width:30%;" src="{{ ctrl.travel.img }}" alt="Travel Image">
-                <p> <span></span> {{ ctrl.travel.description }}</p>
-            </div> -->
+            
         </div>
 
       
@@ -231,8 +223,6 @@
 
     <!-- Page content -->
     <div class="w3-content" style="max-width:2000px;margin-top:46px">
-
-
 
 
 <!-- The Tour Section -->
