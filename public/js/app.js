@@ -8,7 +8,7 @@ app.controller('MainController', ['$http', function ($http) {
     // ========================================
 
     this.error = null;
-    this.user = {};
+    this.user = false;
     this.location = {};
 
     // auth functions
@@ -18,21 +18,23 @@ app.controller('MainController', ['$http', function ($http) {
             .then(response => {
                 console.log('We have success!');
                 this.user = response.data;
-                
+                this.closeRegisterModal();
             }, ex => {
                 console.log(ex.data.err);
                 this.error = ex.statusText;
             })
             .catch(err => this.error = 'Server working?');
-        
+
     };
 
     this.loginUser = () => {
         $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
             .then(response => {
                 console.log('Log in successful!');
-                console.log(respose.data);
+                console.log(response.data);
                 this.user = response.data.user;
+                console.log(this.user);
+                this.closeLoginModal();
                 // this.location = response.data;
             }, ex => {
                 console.log(ex.data.err);
@@ -101,7 +103,7 @@ app.controller('MainController', ['$http', function ($http) {
             }).catch(err => console.error('Catch: ', err));
     }
 
-/////------------edit below--------
+    /////------------edit below--------
 
     // Update travel
     this.showEdit = (travel) => {
@@ -134,16 +136,16 @@ app.controller('MainController', ['$http', function ($http) {
         this.editModal = false;
         this.currentTravelEdit = {};
     }
-/////-end of editting-----------------
+    /////-end of editting-----------------
 
-/////--choose travel info-------------------
+    /////--choose travel info-------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
         this.editData = travel;
         // console.log(this.travel.destination);
     }
 
-/////-Add travel---
+    /////-Add travel---
     this.addTravel = (travel) => {
 
         $http({
@@ -159,7 +161,7 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 
-//-Modal---open/close------------------
+    //-Modal---open/close------------------
     this.showLoginModal = () => {
         console.log('opening model');
         this.modalOpenLogin = true;
@@ -181,23 +183,23 @@ app.controller('MainController', ['$http', function ($http) {
         this.modalOpenRegister = false;
 
     }
-//--side nav ------------------
+    //--side nav ------------------
     this.openNav = () => {
         document.getElementById("mySidenav").style.width = "350px";
     }
 
     this.closeNav = () => {
-            document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("mySidenav").style.width = "0";
     }
-//--end--side nav----------------
+    //--end--side nav----------------
 
 
-//-------------------------------------------
+    //-------------------------------------------
     // Automatic Slideshow - change image every 4 seconds
     var myIndex = 0;
-   
 
-     this.carousel = () => {
+
+    this.carousel = () => {
         var i;
         var x = document.getElementsByClassName("mySlides");
         for (i = 0; i < x.length; i++) {
@@ -228,64 +230,64 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
-// -- page routes ------------------
+    // -- page routes ------------------
 
 
-app.controller('ResturantsController', function () {
-  this.resturants = 'Tartine';
-});
-
-app.controller('GalleriesController', function () {
-  // this.phone = '555-1212';
-});
-
-app.controller('HotelsController', function () {
-  // this.phone = '555-1212';
-});
-
-app.controller('ItinerariesController', function () {
-  // this.phone = '555-1212';
-});
-
-    app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
-      // Enables Push State
-       $locationProvider.html5Mode({ enabled: true });
-
-       // ROUTES
-       $routeProvider.when('/itineraries', {
-        templateUrl: 'itineraries.html',
-        controller: 'ItinerariesController',
-        controllerAs: 'ctrl'
-      });
-
-      $routeProvider.when('/restuarants', {
-       templateUrl: 'restuarants.html',
-       controller: 'ResturantsController',
-       controllerAs: 'ctrl'
-     });
-
-     $routeProvider.when('/hotels', {
-      templateUrl: 'hotels.html',
-      controller: 'HotelsController',
-      controllerAs: 'ctrl'
+    app.controller('ResturantsController', function () {
+        this.resturants = 'Tartine';
     });
 
-    $routeProvider.when('/galleries', {
-      templateUrl: 'galleries.html',
-      controller: 'GalleriesController',
-      controllerAs: 'ctrl'
-    });
-    $routeProvider.otherwise({
-      // if browser url doesn't match any of the above...
-      // here you can do something like above if you'd like with a template and a controller
-      redirectTo: '/' // or you can redirect to another url.
-      // redirection can happen in any 'when' action; I just happened to do it here.
-      // I could have put it in one of the above sections too
+    app.controller('GalleriesController', function () {
+        // this.phone = '555-1212';
     });
 
-}]);
+    app.controller('HotelsController', function () {
+        // this.phone = '555-1212';
+    });
 
-//-----google map API---------------------
+    app.controller('ItinerariesController', function () {
+        // this.phone = '555-1212';
+    });
+
+    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+        // Enables Push State
+        $locationProvider.html5Mode({ enabled: true });
+
+        // ROUTES
+        $routeProvider.when('/itineraries', {
+            templateUrl: 'itineraries.html',
+            controller: 'ItinerariesController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/restuarants', {
+            templateUrl: 'restuarants.html',
+            controller: 'ResturantsController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/hotels', {
+            templateUrl: 'hotels.html',
+            controller: 'HotelsController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/galleries', {
+            templateUrl: 'galleries.html',
+            controller: 'GalleriesController',
+            controllerAs: 'ctrl'
+        });
+        $routeProvider.otherwise({
+            // if browser url doesn't match any of the above...
+            // here you can do something like above if you'd like with a template and a controller
+            redirectTo: '/' // or you can redirect to another url.
+            // redirection can happen in any 'when' action; I just happened to do it here.
+            // I could have put it in one of the above sections too
+        });
+
+    }]);
+
+    //-----google map API---------------------
 
 
     //To use this code on your website, get a free API key from Google.

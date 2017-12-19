@@ -44,6 +44,9 @@ app.use('/travels', travelsController);
 app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 
+app.get('/test', (req, res) => {
+    res.send(req.session);
+});
 
 // LISTEN
 app.listen(PORT, () => {
