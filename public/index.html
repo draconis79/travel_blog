@@ -182,7 +182,7 @@
 
         <!-- create form below-->
         <div class="center">
-            <h6 class="h6Forms">Add a Travel </h6>
+            <h6 class="h6Forms">Add a Travel Experience</h6>
             <!--//////  partials create travel form ////-->
             <div ng-include="'partials/create_form.html'"></div>
             <!--//////  end of partials ////-->
@@ -190,11 +190,11 @@
          <!-- end of create form-->
 
         <!-- start list of travel destinations -->
-    <div class="directions">
+    <!-- <div class="directions">
         <h6>
             <em>--click travel to view details--</em>
         </h6>
-    </div>
+    </div> -->
         <div class="backgroundMiddle">
             <div class="tableDiv">
 
@@ -203,20 +203,23 @@
             <!-- ////// end partials ////-->
 
             </div>
-            <!-- end of list of travel destinations -->
-
-            <div class="details">
+       
+            <!-- <div class="details">
                 <h3>Travel Info:</h3>
                 <hr>
                 <h4><span> Destination: </span>{{ ctrl.travel.destination }}</h4>
                 <h6><span> Climate: </span> {{ ctrl.travel.climate }} </h6>
                 <h6><span> Kid Friendly:</span> {{ ctrl.travel.kid_friendly }}</h6>
                 <p><span> Dates: </span> {{ ctrl.travel.dates }}</p>
-            </div>
+                <img style="width:30%;" src="{{ ctrl.travel.img }}" alt="Travel Image">
+                <p> <span></span> {{ ctrl.travel.description }}</p>
+            </div> -->
         </div>
 
-        <!-- Beginning update/edit form  -->
+      
+        <!-- end containerOne -->
 
+        <!-- Beginning update/edit form  -->
 
             <!-- ////// Edit Form partials////-->
             <div ng-include="'partials/edit_form.html'"></div>
@@ -224,7 +227,7 @@
 
 
     </div>
-    <!--  -->
+    <!-- end CRUD routes -->
 
     <!-- Page content -->
     <div class="w3-content" style="max-width:2000px;margin-top:46px">

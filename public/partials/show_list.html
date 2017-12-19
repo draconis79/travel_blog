@@ -1,14 +1,61 @@
 
 
 
+<div class="flexList">
+<div ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
 
-<div class="flexList" ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
-    <div ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.destination }} </div>
+    <!-- end of list of travel destinations -->
+    <!-- <div class="w3-white" id="itineraries">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+                <div class="w3-third w3-margin-bottom">
+                    <img src="{{ ctrl.travel.img }}" alt="Travel Image" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p>
+                            <b>{{ ctrl.travel.destination }}</b>
+                        </p>
+                        <p class="w3-opacity">
+                            <span> Climate: </span> {{ ctrl.travel.climate }}</p>
+                        <p class="w3-opacity">
+                            <span> Kid Friendly:</span> {{ ctrl.travel.kid_friendly }}</p>
+                        <p class="w3-opacity">
+                            <span> Dates: </span> {{ ctrl.travel.dates }}</p>
+                        <p class="w3-opacity">
+                            <span> </span> {{ ctrl.travel.description }}</p>
+                        <button class="w3-button w3-black w3-margin-bottom" href="/about" ng-click="ctrl.showEdit( travel )">edit</button>
+                        <button class="w3-button w3-black w3-margin-bottom" ng-click="ctrl.deleteTravel( travel._id )">x</button>
+                        <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+    <!--  -->
+    <div class="details">
+        <!-- <h3>Travel Info:</h3> -->
+        
+        <h4>
+            <span> Destination: </span>{{ travel.destination }}</h4>
+        <h6>
+            <span> Climate: </span> {{ travel.climate }} </h6>
+        <h6>
+            <span> Kid Friendly:</span> {{ travel.kid_friendly }}</h6>
+        <p>
+            <span> Dates: </span> {{ travel.dates }}</p>
+        <img style="width:100%;" src="{{ travel.img }}" alt="Travel Image">
+        <p>
+            <span></span> {{ travel.description }}</p>
+    
+    <!-- <div ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.destination }} </div> -->
     <div>
     <button href="/about"  ng-click="ctrl.showEdit( travel )">edit</button>
-    <button ng-click="ctrl.deleteTravel( travel._id )">x</button>
+    <button ng-click="ctrl.deleteTravel( travel._id )">remove</button>
 </div>
-
+</div>
+</div>
 </div>
 
 

@@ -21,7 +21,9 @@ li {
 list-style-type: square;
 }
 
-
+textarea {
+   resize: none;
+}
 
 .centerTop {
 	text-align: center;
@@ -54,13 +56,24 @@ list-style-type: square;
 
 .details {
 	border: 1px solid black;
-	/* width: 90%; */
+    /* width: 30%; */
+    min-width: 100px;
+    max-width: 400px;
 	padding: 1%;
-    margin: 2% 20% ;
-    background-color: #BFD8D4;
+    margin: 10px 10px ;
+    /* background-color: #BFD8D4; */
     color: #162521;
+    letter-spacing: .1px;
+    text-align: justify;
+
 }
 
+.createForm {
+    width: 100%;
+    text-align: center;
+    padding: 5px 10%;
+
+}
 
 
 .right {
@@ -243,7 +256,7 @@ list-style-type: square;
 .center {
     display: block;
     text-align: center;
-    background-color: #BFD8D4;
+    /* background-color: #BFD8D4; */
     margin: 0 auto;
     padding: 10px 5px;
 }
@@ -270,13 +283,26 @@ table {
 
 .flexList {
      display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #BFD8D4;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: #BFD8D4; */
     color: #162521;
-    margin: 5px 19%;
+    margin: 5px 5px;
     padding: 2px 5px;
-    border: 1px solid black;
+    /* width: 30%; */
+    height: 2000px;
+    min-width:450px;
+    /* border: 1px solid black; */
+    /* align-content: stretch; */
+}
+.ng-scope {
+    margin: 0 0;
+}
+
+.climate {
+    margin: 0 0;
 }
 
 .mySlides {
