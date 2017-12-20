@@ -13,6 +13,18 @@ body {
 
 }
 
+h3, p, b, h6 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font weight: 400px;
+}
+
+h6 {
+
+  text-align: center;
+  justify-content: center;
+  }
+}
+
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
 
