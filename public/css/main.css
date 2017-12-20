@@ -1,9 +1,41 @@
 
 body {
-  margin: 0 auto;
+  /*margin: 0 auto;*/
   /*font-family: "Lato", sans-serif*/
+  padding-bottom: 40px;
+  color: #5a5a5a;
   font-family: 'Open Sans Condensed', sans-serif;
 }
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+  color: white;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+  color: white;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+  color: white;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+  color: white;
+}
+
 
 
 .detailsAbstract {
@@ -101,7 +133,7 @@ textarea {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #BB999C;;
+    background-color: #BB999C;
     color: #162521;
 }
 
