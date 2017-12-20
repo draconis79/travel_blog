@@ -20,6 +20,7 @@ app.controller('MainController', ['$http', function ($http) {
                 this.user = response.data;
                 this.closeRegisterModal();
             }, ex => {
+                console.log('user already exists');
                 console.log(ex.data.err);
                 this.error = ex.statusText;
             })
@@ -29,7 +30,8 @@ app.controller('MainController', ['$http', function ($http) {
 
     this.loginUser = () => {
         $http({ url: '/sessions/login', method: 'post', data: this.loginForm })
-            .then(response => {
+            .then((response) => {
+
                 console.log('Log in successful!');
                 console.log(response.data);
                 this.user = response.data.user;
