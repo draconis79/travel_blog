@@ -1,4 +1,5 @@
 const app = angular.module('TravelsApp', ['ngRoute']);
+// const travelAPIKEY = process.env.travelAPIKEY;
 
 app.controller('MainController', ['$http', function ($http) {
 
@@ -310,6 +311,38 @@ app.controller('MainController', ['$http', function ($http) {
     //     marker.setMap(map);
     // }
 
-}]);
 
-//////////// WHATS UP ////////////////////////
+
+
+// Travel API request -----------------------------
+
+    // this.destination = {};
+    // this.departureDate = [];
+    // this.tripDuration = [];
+    // this.test = 'works';
+    $http({
+        url:'/travelkey',
+        method: 'GET'
+    }).then(response => {
+        this.accesskey = response.data.apikey
+    })
+        .catch(err => console.log(err));
+
+
+this.url = 'http://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?origin=IST&destination=BOS&departure_date=2018-01-03&return_date=2018-01-10&number_of_results=3&apikey=' + this.accesskey + '';
+
+
+    this.getTravelInfoFunction = () => {
+        console.log('getting travel array!')
+        $http({
+            url: this.url,
+            method: 'GET'
+        }).then(response => {
+            this.travelInfos = response.data;
+            console.log(this.travelInfos)
+        })
+            .catch(err => console.log(err));
+    }
+
+
+}]);

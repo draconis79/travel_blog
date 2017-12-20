@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const app = express();
 const session = require('express-session');
 require('pretty-error').start();
+require('dotenv').config();
+console.log(process.env.test)
 
 // CONFIG
 const PORT = process.env.PORT || 3000;
@@ -48,6 +50,12 @@ app.get('/test', (req, res) => {
 
     res.send(req.session);
 });
+
+app.get('/travelkey', (req, res) => {
+
+    res.send({ apikey: process.env.travelAPIKEY });
+});
+
 
 
 // LISTEN
