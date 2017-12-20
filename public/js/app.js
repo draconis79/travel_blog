@@ -194,7 +194,7 @@ app.controller('MainController', ['$http', function ($http) {
     //--end--side nav----------------
 
 
-    //-------------------------------------------
+    //-------------------------------
     // Automatic Slideshow - change image every 4 seconds
     var myIndex = 0;
 
