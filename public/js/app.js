@@ -403,8 +403,8 @@ app.controller('MainController', ['$http', function ($http) {
 $(() => {
   let $this = this;
   $('*').each((i) => {
-    setTimeout(() => {
+    setTimeout((i) => {
       $('*').eq(i).addClass('is-visible');
-    } * i);
+    }, i * i);
   });
 })

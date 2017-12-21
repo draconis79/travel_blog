@@ -1,15 +1,6 @@
+<div class="details">
 
 
-
-<!-- <div class="flexList">
-<div class="w3-third" ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:5px">
-
-
-
-    <div class="details">
- 
-        
         <h4>
             <span> Destination: </span>{{ travel.destination }}</h4>
         <h6>
@@ -21,7 +12,7 @@
         <img style="width:100%;" ng-src="{{ travel.img }}" alt="Travel Image">
         <p>
             <span></span> {{ travel.description }}</p> -->
-    
+
     <div class="flexList">
         <div class="third" ng-repeat="travel in ctrl.travels" >
             <img style="width:100%;" ng-src="{{ travel.img }}" alt="Travel Image">
@@ -33,10 +24,10 @@
                 <span> Kid Friendly:</span> {{ travel.kid_friendly }}</h6>
             <p>
                 <span> Dates: </span> {{ travel.dates }}</p>
-            
+
             <p>
                 <span></span> {{ travel.description }}</p>
-        
+
     <div>
         <button href="/about"  ng-click="ctrl.showEdit( travel )">edit</button>
         <button ng-click="ctrl.deleteTravel( travel._id )">remove</button>
@@ -66,10 +57,10 @@
 </div>
 
 
- 
+
 <!-- <div class='widget' data-origin-geo-lookup="true" data-skyscanner-widget="LocationWidget" data-currency="USD" data-whitelabeldomain="whitelabeldemo.skyscanner.net"
     data-destination-name="{{ travel.destination }}"></div> -->
-        
+
     </div>
     </div>
 </div>
