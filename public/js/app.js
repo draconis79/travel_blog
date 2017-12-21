@@ -391,10 +391,10 @@ app.controller('MainController', ['$http', function ($http) {
 //     fadeMe = $('.fadeMe');
 //
 //     doc.on('scroll', () => {
-//       let scrollpos = this.scrollTop();
+//       let scrollpos = this.scrollTop() ;
 //       fadeMe.each(() => {
-//         let elemoffsetTop = this.offset().top;
-//         if (scrollpos > elemoffsetTop) {
+//         let elemoffsetBottom = this.offset().bottom;
+//         if (scrollpos > elemoffsetBottom) {
 //           this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400; )
 //         }
 //       })

@@ -542,6 +542,6 @@ margin: 5% 20%;
 
 }
 
-.navbar-brand:hover{
+input:hover{
   transition: scale(1.1);
 }
