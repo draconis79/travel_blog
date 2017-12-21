@@ -1,11 +1,13 @@
 *{
   /*opacity: .9;*/
 }
-.w3-padding{
-  list-style: none;
-}
+
 .is-visible{
+<<<<<<< HEAD
   animation: Items 800ms ease-in backwards;
+=======
+  animation: Items 3ms linear;
+>>>>>>> parent of 4b235c8... animation keeps looping
 
 }
 
