@@ -5,7 +5,7 @@
   list-style: none;
 }
 .is-visible{
-  animation: Items 600ms linear backwards;
+  animation: Items 800ms ease-in backwards;
 
 }
 
