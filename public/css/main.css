@@ -1,9 +1,9 @@
 *{
-  /*opacity: .8;*/
+  /*opacity: .9;*/
 }
 
 .is-visible{
-  animation: Items 750ms linear;
+  animation: Items 3ms linear;
 
 }
 

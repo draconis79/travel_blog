@@ -405,6 +405,6 @@ $(() => {
   $('*').each((i) => {
     setTimeout(() => {
       $('*').eq(i).addClass('is-visible');
-    }, 1 * i);
+    } * i);
   });
 })
