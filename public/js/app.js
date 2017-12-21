@@ -384,3 +384,14 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 }]);
+
+// fade requestAnimation
+$this.fade = () => {
+    let doc = this,
+    fadeMe = $('.fadeMe');
+
+    doc.on('scroll', () => {
+      let scrollpos = this.scrollTop();
+      fadeMe.each
+    })
+}
