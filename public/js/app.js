@@ -392,6 +392,11 @@ $this.fade = () => {
 
     doc.on('scroll', () => {
       let scrollpos = this.scrollTop();
-      fadeMe.each
+      fadeMe.each(() => {
+        let elemoffsetTop = this.offset().top;
+        if (scrollpos > elemoffsetTop) {
+          this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400; )
+        }
+      })
     })
 }
