@@ -195,7 +195,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
     this.closeNav = () => {
-        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("newbar").style.height = "0";
     }
     //--end--side nav----------------
 
