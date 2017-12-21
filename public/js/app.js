@@ -162,7 +162,10 @@ app.controller('MainController', ['$http', function ($http) {
         }).catch(err => console.error('Catch: ', err));
     }
 
-
+    // fuction to close nav after clicking login or sign up
+    this.closeNav = () => {
+      $('.navbar-toggle').class('');
+    }
 
     //-Modal---open/close------------------
     this.showLoginModal = () => {

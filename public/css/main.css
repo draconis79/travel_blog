@@ -404,7 +404,11 @@ textarea {
     padding: 10px 5px;
 }
 .container {
- margin: 0 auto;
+  width: 100% !important;
+  position: fixed;
+  /*margin: 0 auto;*/
+  padding: 0;
+  z-index: 10000;
 }
 
 .tableDiv{
@@ -469,7 +473,7 @@ table {
 
 
 .modal-text-box {
-  position:fixed;
+  position:relative;
   text-align: center;
 	background-color: white;
     top: 30%;
@@ -480,6 +484,8 @@ table {
 	box-shadow: 0 2px 2px rgba(0,0,0,.2);
     text-align: left;
     padding: 5% 5%;
+
+  z-index: 1000000000 !important;
 }
 
 .editModal {
