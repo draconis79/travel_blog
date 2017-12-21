@@ -310,4 +310,13 @@ app.controller('ItinerariesController', function () {
 
 }]);
 
+
+let $win = $(window);
+let $logo2 = $('.logo2');
+$win.on('scroll', () => {
+  console.log('scrolling');
+  let top = $win.scrollTop();
+  $logo2.css('transform', 'rotate(' + top + 'deg )');
+})
+
 //////////// WHATS UP ////////////////////////
