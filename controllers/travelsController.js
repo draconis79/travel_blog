@@ -1,6 +1,7 @@
 // dependencies
 const express = require('express');
 const travels = express.Router();
+const travelAPIKEY = process.env.travelAPIKEY;
 
 // models
 const Travel = require('../models/travels.js');
@@ -41,10 +42,13 @@ travels.delete('/:id', async (req, res) => {
 travels.put('/:id', async (req, res) => {
   try {
     const updateTravel = await Travel.findByIdAndUpdate(req.params.id, req.body);
+    console.log(updateTravel);
     res.status(200).json(updateTravel);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 });
+
+
 
 module.exports = travels;
