@@ -41,6 +41,8 @@ h6 {
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+  position: fixed;
+  z-index: 1000000000 !important;
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;
@@ -126,6 +128,8 @@ h6 {
     /*position: relative;
     margin-top: 400px;
     z-index: 100000000000;*/
+    position: fixed;
+    z-index: 1000000001 !important;
   }
 
   /* The navbar becomes detached from the top, so we round the corners */
