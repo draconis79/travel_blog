@@ -400,11 +400,11 @@ app.controller('MainController', ['$http', function ($http) {
 //       })
 //     })
 // }
-$(() => {
-  let $this = this;
-  $('*').each((i) => {
-    setTimeout(() => {
-      $('*').eq(i).addClass('is-visible');
-    } * i);
-  });
-})
+// $(() => {
+//   let $this = this;
+//   $('*').each((i) => {
+//     setTimeout(() => {
+//       $('*').eq(i).addClass('is-visible');
+//     } * i);
+//   });
+// })
