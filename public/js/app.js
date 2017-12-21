@@ -1,5 +1,6 @@
 const app = angular.module('TravelsApp', ['ngRoute']);
 
+
 app.controller('MainController', ['$http', function ($http) {
 
 
@@ -55,8 +56,7 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 
-    //-----------------CRUD ROUTES below --------------
-    //------------------------------------------------
+    //-----CRUD ROUTES below -------
 
 
     this.travel = '';
@@ -106,7 +106,7 @@ app.controller('MainController', ['$http', function ($http) {
             }).catch(err => console.error('Catch: ', err));
     }
 
-/////------------edit below------------------------------
+    /////------------edit below--------
 
     // Update travel
     this.showEdit = (travel) => {
@@ -115,16 +115,21 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
     this.editTravel = () => {
-        //console.log('edit submit...', this.currentTravelEdit);
+        console.log('edit submit...', this.currentTravelEdit);
+        this.edittedData = this.currentTravelEdit;
         $http({
             method: 'PUT',
             url: '/travels/' + this.currentTravelEdit._id,
             data: this.currentTravelEdit
-        }).then(response => {
+        }).then((response) => {
+            console.log("+++++++++++++++");
+            console.log(this.edittedData);
+            console.log(this.currentTravelEdit);
             console.log('data:', response.data);
-            const updateByIndex = this.travels.findIndex(travel => travel._id === response.data._id)
+            const updateByIndex = this.travels.findIndex(travel => travel._id === this.edittedData._id)
             console.log('update ind:', updateByIndex);
-            this.travels.splice(updateByIndex, 1, response.data)
+            console.log(this.travels[updateByIndex]);
+            this.travels[updateByIndex] = this.edittedData;
         }).catch(err => console.error('Catch', err));
         this.editModal = false;
         this.currentTravelEdit = {};
@@ -134,17 +139,16 @@ app.controller('MainController', ['$http', function ($http) {
         this.editModal = false;
         this.currentTravelEdit = {};
     }
-/////------end of editting--------------------------------
+    /////-end of editting-----------------
 
-
-/////---------------choose travel info---------------------
+    /////--choose travel info-------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
         this.editData = travel;
         // console.log(this.travel.destination);
     }
 
-/////---------------Add travel-----------------------------
+    /////-Add travel---
     this.addTravel = (travel) => {
 
         $http({
@@ -160,7 +164,7 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 
-//------------Modal---open/close-----------------
+    //-Modal---open/close------------------
     this.showLoginModal = () => {
         console.log('opening model');
         this.modalOpenLogin = true;
@@ -182,23 +186,23 @@ app.controller('MainController', ['$http', function ($http) {
         this.modalOpenRegister = false;
 
     }
-//-----------side nav ---------------------
+    //--side nav ------------------
     this.openNav = () => {
-        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.width = "350px";
     }
 
     this.closeNav = () => {
-            document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("mySidenav").style.width = "0";
     }
-//-------------end--side nav----------------
+    //--end--side nav----------------
 
 
-//-------------------------------------------
+    //-------------------------------
     // Automatic Slideshow - change image every 4 seconds
     var myIndex = 0;
-    carousel();
 
-    function carousel() {
+
+    this.carousel = () => {
         var i;
         var x = document.getElementsByClassName("mySlides");
         for (i = 0; i < x.length; i++) {
@@ -207,11 +211,11 @@ app.controller('MainController', ['$http', function ($http) {
         myIndex++;
         if (myIndex > x.length) { myIndex = 1 }
         x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 4000);
+        setTimeout(this.carousel, 4000);
     }
-
+    this.carousel();
     // Used to toggle the menu on small screens when clicking on the menu button
-    function myFunction() {
+    this.myFunction = () => {
         var x = document.getElementById("navDemo");
         if (x.className.indexOf("w3-show") == -1) {
             x.className += " w3-show";
@@ -229,68 +233,67 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
-// ------------ page routes ------------------
+    // -- page routes ------------------
 
 
-
-app.controller('ResturantsController', function () {
-  this.resturants = 'Tartine';
-});
-
-app.controller('GalleriesController', function () {
-  // this.phone = '555-1212';
-});
-
-app.controller('HotelsController', function () {
-  // this.phone = '555-1212';
-});
-
-app.controller('ItinerariesController', function () {
-  // this.phone = '555-1212';
-});
-
-    app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
-      // Enables Push State
-       $locationProvider.html5Mode({ enabled: true });
-
-       // ROUTES
-       $routeProvider.when('/itineraries', {
-        templateUrl: 'itineraries.html',
-        controller: 'ItinerariesController',
-        controllerAs: 'ctrl'
-      });
-
-      $routeProvider.when('/restuarants', {
-       templateUrl: 'restuarants.html',
-       controller: 'ResturantsController',
-       controllerAs: 'ctrl'
-     });
-
-     $routeProvider.when('/hotels', {
-      templateUrl: 'hotels.html',
-      controller: 'HotelsController',
-      controllerAs: 'ctrl'
+    app.controller('ResturantsController', function () {
+        this.resturants = 'Tartine';
     });
 
-    $routeProvider.when('/galleries', {
-      templateUrl: 'galleries.html',
-      controller: 'GalleriesController',
-      controllerAs: 'ctrl'
-    });
-    $routeProvider.otherwise({
-      // if browser url doesn't match any of the above...
-      // here you can do something like above if you'd like with a template and a controller
-      redirectTo: '/' // or you can redirect to another url.
-      // redirection can happen in any 'when' action; I just happened to do it here.
-      // I could have put it in one of the above sections too
+    app.controller('GalleriesController', function () {
+        // this.phone = '555-1212';
     });
 
-}]);
+    app.controller('HotelsController', function () {
+        // this.phone = '555-1212';
+    });
 
-//-----google map API---------------------
+    app.controller('ItinerariesController', function () {
+        // this.phone = '555-1212';
+    });
+
+    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+        // Enables Push State
+        $locationProvider.html5Mode({ enabled: true });
+
+        // ROUTES
+        $routeProvider.when('/itineraries', {
+            templateUrl: 'itineraries.html',
+            controller: 'ItinerariesController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/restuarants', {
+            templateUrl: 'restuarants.html',
+            controller: 'ResturantsController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/hotels', {
+            templateUrl: 'hotels.html',
+            controller: 'HotelsController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/galleries', {
+            templateUrl: 'galleries.html',
+            controller: 'GalleriesController',
+            controllerAs: 'ctrl'
+        });
+        $routeProvider.otherwise({
+            // if browser url doesn't match any of the above...
+            // here you can do something like above if you'd like with a template and a controller
+            redirectTo: '/' // or you can redirect to another url.
+            // redirection can happen in any 'when' action; I just happened to do it here.
+            // I could have put it in one of the above sections too
+        });
+
+    }]);
+
+    //-----google map ---------------------
 
 
-    //To use this code on your website, get a free API key from Google.
+    //To use this code on your website, get a free key from Google.
     // Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
 
     // function myMap() {
@@ -308,6 +311,73 @@ app.controller('ItinerariesController', function () {
     //     marker.setMap(map);
     // }
 
-}]);
 
-//////////// WHATS UP ////////////////////////
+
+
+// Travel Info - Amadeus travel request ----------------
+
+    // this.destination = {};
+    // this.departureDate = [];
+    // this.tripDuration = [];
+    // this.test = 'works';
+    $http({
+        url:'/hotelsParis',
+        method: 'GET'
+    }).then(response => {
+        // this.travelauth = response.data.travelauth
+        this.hotelsParis = response.data.hotelsParis
+    })
+        .catch(err => console.log(err));
+
+    
+            this.hotelsParisfunction = () => {
+                console.log('getting hotels Paris array!')
+                $http({
+                    url: this.hotelsParis,
+                    method: 'GET'
+                }).then(response => {
+                    this.travelInfos = response.data.results
+                    console.log(this.travelInfos)
+                    // this.hotelsParisParsed = JSON.parse(travelInfos)
+                    // console.log(this.hotelsParisParsed)
+                })
+                    .catch(err => console.log(err));
+            } 
+
+
+    //Flight schedules
+
+    $http({
+        url: '/flightsParis',
+        method: 'GET'
+    }).then(response => {
+        this.flightsParis = response.data.flightsParis
+    })
+        .catch(err => console.log(err));
+
+            this.flightsParisfunction = () => {
+                console.log('getting Paris flights array!')
+                console.log(this.flightsParis)
+                $http({
+                    url: this.flightsParis,
+                    method: 'GET'
+                }).then(response => {
+                    this.travelInfos = response.data;
+                    console.log(this.travelInfos)
+                })
+                    .catch(err => console.log(err));
+            } 
+
+
+
+
+
+
+
+            //end travel ---
+
+
+
+
+
+}]);

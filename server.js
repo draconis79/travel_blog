@@ -6,6 +6,8 @@ const morgan = require('morgan');
 const app = express();
 const session = require('express-session');
 require('pretty-error').start();
+require('dotenv').config();
+console.log(process.env.test)
 
 // CONFIG
 const PORT = process.env.PORT || 3000;
@@ -45,8 +47,34 @@ app.use('/users', usersController);
 app.use('/sessions', sessionsController);
 
 app.get('/test', (req, res) => {
-  res.send(req.session);
+
+    res.send(req.session);
 });
+
+//original
+app.get('/travelkey', (req, res) => {
+    res.send({ travelauth: process.env.travelauth });
+});
+
+//links
+app.get('/hotelsParis', (req, res) => {
+    res.send({ hotelsParis: process.env.hotelsParis });
+});
+
+app.get('/flightsParis', (req, res) => {
+    res.send({ flightsParis: process.env.flightsParis });
+});
+
+
+
+
+
+
+
+
+
+
+
 // LISTEN
 app.listen(PORT, () => {
     console.log('=======================');
