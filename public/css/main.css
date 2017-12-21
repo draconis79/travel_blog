@@ -1,9 +1,11 @@
 *{
   /*opacity: .9;*/
 }
-
+.w3-padding{
+  list-style: none;
+}
 .is-visible{
-  animation: Items 3ms linear;
+  animation: Items 600ms linear backwards;
 
 }
 
