@@ -5,6 +5,7 @@ const travelSchema = mongoose.Schema({
   climate: { type: String,},
   dates: { type: String,},
   kid_friendly: {type: Boolean},
+  description: String,
   img: String
 });
 
