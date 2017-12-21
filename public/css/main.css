@@ -541,3 +541,7 @@ margin: 5% 20%;
   margin: 0 auto;
 
 }
+
+.navbar-brand:hover{
+  transition: scale(1.1);
+}

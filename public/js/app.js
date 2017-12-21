@@ -386,17 +386,17 @@ app.controller('MainController', ['$http', function ($http) {
 }]);
 
 // fade requestAnimation
-$this.fade = () => {
-    let doc = this,
-    fadeMe = $('.fadeMe');
-
-    doc.on('scroll', () => {
-      let scrollpos = this.scrollTop();
-      fadeMe.each(() => {
-        let elemoffsetTop = this.offset().top;
-        if (scrollpos > elemoffsetTop) {
-          this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400; )
-        }
-      })
-    })
-}
+// $this.fade = () => {
+//     let doc = this,
+//     fadeMe = $('.fadeMe');
+//
+//     doc.on('scroll', () => {
+//       let scrollpos = this.scrollTop();
+//       fadeMe.each(() => {
+//         let elemoffsetTop = this.offset().top;
+//         if (scrollpos > elemoffsetTop) {
+//           this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400; )
+//         }
+//       })
+//     })
+// }
