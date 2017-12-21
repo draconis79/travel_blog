@@ -1,9 +1,11 @@
 *{
   /*opacity: .9;*/
 }
-
+.w3-padding{
+  list-style: none;
+}
 .is-visible{
-  animation: Items 3ms linear;
+  animation: Items 800ms ease-in backwards;
 
 }
 
@@ -521,7 +523,6 @@ table {
   text-align: center;
 }
 
-<<<<<<< HEAD
 body {
   /*margin: 0 auto;*/
   /*font-family: "Lato", sans-serif*/
@@ -997,42 +998,10 @@ table {
 	background-color: white;
     top: 30%;
     left:30%;
-=======
-
-/* Sky Scanner Flights */
-.skyscannerFlights {
-margin: 5% 20%;
-}
-
-.widget + .widget {
-  margin: 5px;
-  display: block;
-}
-
-
-/* end sky scanner */
-
-.third {
-    width: 30%;
-    text-align: justify;
-    /* padding: 1%; */
-    margin: 1%;
-    /* border: 1px solid black; */
-}
-
-.modal-text-box {
-  position:relative;
-  text-align: center;
-	background-color: white;
-  top: 15%;
-  /*left:30%;*/
-  margin-top: 200px;
->>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
 	height: 398px;
 	width: 498px;
 	border-radius: 2px;
 	box-shadow: 0 2px 2px rgba(0,0,0,.2);
-<<<<<<< HEAD
     text-align: left;
     padding: 5% 5%;
 }
@@ -1057,14 +1026,3 @@ margin: 5% 20%;
   color: black;
   text-align: center;
 }
-=======
-  text-align: left;
-  padding: 5% 5%;
-  margin: 0 auto;
-
-}
-
-/*input:hover{
-  transition: scale(1.1);
-}*/
->>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
