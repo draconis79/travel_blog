@@ -162,7 +162,10 @@ app.controller('MainController', ['$http', function ($http) {
         }).catch(err => console.error('Catch: ', err));
     }
 
-
+    // fuction to close nav after clicking login or sign up
+    this.closeNav = () => {
+      $('.navbar-toggle').class('');
+    }
 
     //-Modal---open/close------------------
     this.showLoginModal = () => {
@@ -192,7 +195,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
     this.closeNav = () => {
-        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("newbar").style.height = "0";
     }
     //--end--side nav----------------
 
@@ -329,7 +332,7 @@ app.controller('MainController', ['$http', function ($http) {
     })
         .catch(err => console.log(err));
 
-    
+
             this.hotelsParisfunction = () => {
                 console.log('getting hotels Paris array!')
                 $http({
@@ -342,7 +345,7 @@ app.controller('MainController', ['$http', function ($http) {
                     // console.log(this.hotelsParisParsed)
                 })
                     .catch(err => console.log(err));
-            } 
+            }
 
 
     //Flight schedules
@@ -366,7 +369,7 @@ app.controller('MainController', ['$http', function ($http) {
                     console.log(this.travelInfos)
                 })
                     .catch(err => console.log(err));
-            } 
+            }
 
 
 

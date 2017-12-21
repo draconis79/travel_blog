@@ -5,13 +5,27 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ttavel Blog</title>
+    <title>Travel Blog</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" charset="utf-8"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
     <script src="/js/app.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/noframework.waypoints.min.js">
+
+    </script>
     <base href="/" target="_blank">
 
     <!-- ! Bootstrap CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -67,7 +81,7 @@
     <div class="w3-row w3-padding-32">
         <div class="w3-third">
             <p>London</p>
-            <img src="/css/images/london.jpeg" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%">
+            <img src="/css/images/london.jpeg" class="w3-round w3-margin-bottom revealOnScroll" data-animation='lightSpeedIn' data-timeout='400' alt="Random Name" style="width:60%">
         </div>
         <div class="w3-third">
             <p>Paris</p>
@@ -294,7 +308,7 @@
                     <p class="w3-opacity">Sun 29 Nov 2016</p>
                     <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                     <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
-=======
+
         <!-- The Tour Section -->
         <div class="w3-lightgrey" id="itineraries">
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
