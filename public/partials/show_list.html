@@ -1,15 +1,12 @@
-
-
-
-
-<div class="flexList" ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
-    <div ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.destination }} </div>
+<div class="w3-third w3-margin-bottom" ng-repeat="travel in ctrl.travels" ng-class="(travel.climate ? 'climate' : '' )">
+    <div class="w3-container w3-white" ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.destination }} </div>
+    <div class="w3-container w3-white" ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.climate }} </div>
+    <div class="w3-container w3-white" ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.dates }} </div>
+    <div class="w3-container w3-white" ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.kid_friendly }} </div>
+    <img class="card-img-top" ng-click="ctrl.chooseOneTravel( travel )"> {{ travel.img }} </>
     <div>
-    <button href="/about"  ng-click="ctrl.showEdit( travel )">edit</button>
-    <button ng-click="ctrl.deleteTravel( travel._id )">x</button>
-</div>
+        <button href="/about" ng-click="ctrl.showEdit( travel )">edit</button>
+        <button ng-click="ctrl.deleteTravel( travel._id )">x</button>
+    </div>
 
 </div>
-
-
-
