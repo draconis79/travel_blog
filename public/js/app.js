@@ -384,3 +384,27 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 }]);
+
+// fade requestAnimation
+// $this.fade = () => {
+//     let doc = this,
+//     fadeMe = $('.fadeMe');
+//
+//     doc.on('scroll', () => {
+//       let scrollpos = this.scrollTop() ;
+//       fadeMe.each(() => {
+//         let elemoffsetBottom = this.offset().bottom;
+//         if (scrollpos > elemoffsetBottom) {
+//           this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400; )
+//         }
+//       })
+//     })
+// }
+$(() => {
+  let $this = this;
+  $('*').each((i) => {
+    setTimeout(() => {
+      $('*').eq(i).addClass('is-visible');
+    } * i);
+  });
+})

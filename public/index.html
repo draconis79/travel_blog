@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<body ng-controller="MainController as ctrl">
+=======
 <!DOCTYPE html>
 <html ng-app="TravelsApp">
 
@@ -38,6 +41,7 @@
 </head>
 
 <body ng-app="TravelsApp" ng-controller="MainController as ctrl">
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
 
     <!--//////  Partials login-form ////-->
     <div ng-include="'partials/login_form.html'"></div>
@@ -48,7 +52,7 @@
     <!--//////  end partials//// -->
 
     <!--//////  Partials nav ////-->
-    <div ng-include="'partials/nav.html'"></div>
+    <div class="is-visible"ng-include="'partials/nav.html'"></div>
     <!--////// end of partials ////-->
 
     <!-- <div>
@@ -65,6 +69,8 @@
 
 
     <!-- <div class="head">
+<<<<<<< HEAD
+=======
         <div class="logo2">Travels</div>
     </div>
 <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="traveler">
@@ -91,6 +97,7 @@
             <p>Jamaica</p>
             <img src="/css/images/jamaica.jpg" class="w3-round" alt="Random Name" style="width:60%"> -->
     <!-- <div class="head">
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
         <div class="logo2">TRAVELS</div>
     </div> -->
 
@@ -218,8 +225,11 @@
         </div>
     </div>
 
+<<<<<<< HEAD
+=======
 <!-- </div> -->
 <!-- this was merged change -->
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
 
 
 
@@ -233,6 +243,54 @@
             <div ng-include="'partials/create_form.html'"></div>
             <!--//////  end of partials ////-->
         </div>
+<<<<<<< HEAD
+        <!-- end of create form-->
+
+        <!-- start list of travel destinations -->
+        <!-- <div class="directions">
+        <h6>
+            <em>--click travel to view details--</em>
+        </h6>
+    </div> -->
+        <div class="backgroundMiddle">
+            <div class="tableDiv">
+
+                <!-- ////// partials List of Travel Destinations////-->
+                <div ng-include="'partials/show_list.html'"></div>
+                <!-- ////// end partials ////-->
+
+            </div>
+
+            <!-- <div class="details">
+                <h3>Travel Info:</h3>
+                <hr>
+                <h4><span> Destination: </span>{{ ctrl.travel.destination }}</h4>
+                <h6><span> Climate: </span> {{ ctrl.travel.climate }} </h6>
+                <h6><span> Kid Friendly:</span> {{ ctrl.travel.kid_friendly }}</h6>
+                <p><span> Dates: </span> {{ ctrl.travel.dates }}</p>
+                <img style="width:30%;" src="{{ ctrl.travel.img }}" alt="Travel Image">
+                <p> <span></span> {{ ctrl.travel.description }}</p>
+            </div> -->
+        </div>
+
+
+        <!-- end containerOne -->
+
+        <!-- Beginning update/edit form  -->
+
+        <!-- ////// Edit Form partials////-->
+        <div ng-include="'partials/edit_form.html'"></div>
+        <!--//////  end partials//// -->
+
+
+    </div>
+    <!-- end CRUD routes -->
+
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+=======
 
         <div class="backgroundMiddle">
             <div class="tableDiv">
@@ -249,12 +307,67 @@
             <!--//////  end partials//// -->
     </div>
     <!-- end CRUD routes -->
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
 
 
 <!-- skyscanner GEO IP search -->
     <div class="skyscannerFlights" data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-currency="USD" ></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
 
+<<<<<<< HEAD
+        <!-- The Tour Section -->
+        <div class="w3-lightgrey" id="itineraries">
+            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+                <h2 class="w3-wide w3-center">ITINERARIES</h2>
+                <p class="w3-opacity w3-center">
+                    <h6>Remember to book your tickets!</h6>
+                </p>
+                <!-- <ul class="w3-ul w3-border w3-white w3-text-grey">
+                    <li class="w3-padding">Janruary
+                        <span class="w3-tag w3-red w3-margin-left">Great time to visit Brazil</span>
+                    </li>
+                    <li class="w3-padding">February
+                        <span class="w3-tag w3-red w3-margin-left">Great time to visit the Alps</span>
+                    </li>
+                    <li class="w3-padding">March
+                        <span class="w3-badge w3-right w3-margin-right">3</span>
+                    </li>
+                </ul> -->
+            </div>
+            <div class="w3-row-padding w3-padding" style="margin:0 -16px">
+                <div class="w3-third w3-margin-bottom">
+                    <img class="card-img-top" src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p>
+                            <b>Jamaica</b>
+                        </p>
+                        <p class="w3-opacity">Fri 27 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button class="w3-button w3-grey w3-section w3-left" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <img class="card-img-top" src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p>
+                            <b>London</b>
+                        </p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button class="w3-button w3-grey w3-section w3-left" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <img class="card-img-top" src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p>
+                            <b>Paris</b>
+                        </p>
+                        <p class="w3-opacity">Sun 29 Nov 2016</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                        <button class="w3-button w3-grey w3-section w3-left" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
+                    </div>
+=======
 <!-- The Tour Section -->
 <div class="w3-black" id="itineraries">
     <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
@@ -286,14 +399,29 @@
                     <p class="w3-opacity">Fri 27 Nov 2016</p>
                     <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                     <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
                 </div>
             </div>
-            <div class="w3-third w3-margin-bottom">
-                <img src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
+        </div>
+
+
+
+        <!-- Ticket Modal -->
+        <div id="ticketModal" class="w3-modal">
+            <div class="w3-modal-content w3-animate-top w3-card-4">
+                <header class="w3-container w3-teal w3-center w3-padding-32">
+                    <span onclick="document.getElementById('ticketModal').style.display='none'" class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
+                    <h2 class="w3-wide">
+                        <i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
+                </header>
+                <div class="w3-container">
                     <p>
-                        <b>London</b>
+                        <label>
+                            <i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label>
                     </p>
+<<<<<<< HEAD
+                    <input class="w3-input w3-border" type="text" placeholder="How many?">
+=======
                     <p class="w3-opacity">Sat 28 Nov 2016</p>
                     <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                     <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
@@ -302,9 +430,26 @@
             <div class="w3-third w3-margin-bottom">
                 <img src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
                 <div class="w3-container w3-white">
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
                     <p>
-                        <b>Paris</b>
+                        <label>
+                            <i class="fa fa-user"></i> Send To</label>
                     </p>
+                    <input class="w3-input w3-border" type="text" placeholder="Enter email">
+                    <button class="w3-button w3-block w3-teal w3-padding-16 w3-section w3-right">PAY
+                        <i class="fa fa-check"></i>
+                    </button>
+                    <button class="w3-button w3-red w3-section" onclick="document.getElementById('ticketModal').style.display='none'">Close
+                        <i class="fa fa-remove"></i>
+                    </button>
+                    <p class="w3-right">Need
+                        <a href="#" class="w3-text-blue">help?</a>
+                    </p>
+<<<<<<< HEAD
+                </div>
+            </div>
+        </div>
+=======
                     <p class="w3-opacity">Sun 29 Nov 2016</p>
                     <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
                     <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
@@ -398,12 +543,17 @@
                 </div>
             </div>
         </div>
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
 
         <!-- The Contact Section -->
         <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
             <h2 class="w3-wide w3-center">CONTACT</h2>
             <p class="w3-opacity w3-center">
+<<<<<<< HEAD
+                <h6>Fan? Drop a note!</h6>
+=======
                 <h6>Sign-up for latest travel ideas</h6>
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
             </p>
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
@@ -413,6 +563,37 @@
                     <br>
                     <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com
                     <br>
+<<<<<<< HEAD
+                </div>
+                <div class="w3-col m6">
+                    <form action="/action_page.php" target="_blank">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                            </div>
+                        </div>
+                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                        <button class="w3-button w3-grey w3-section w3-right" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="googleMap" style="height:600px; font-size: 100px;text-align: center; color: white; background-color:gray;" class="w3-grayscale-max">
+            <br> MAP</div>
+
+        <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script> -->
+
+        <!-- ////// footer partials ////-->
+        <div ng-include="'partials/footer.html'"></div>
+=======
                 </div>
                 <div class="w3-col m6">
                     <form action="/action_page.php" target="_blank">
@@ -447,6 +628,18 @@
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
     crossorigin="anonymous"></script>
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
 
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+            crossorigin="anonymous"></script>
 </body>
+<<<<<<< HEAD
+
 </html>
+=======
+</html>
+>>>>>>> 441ca1fb94482874a0409c46f647f8ac717f8617
