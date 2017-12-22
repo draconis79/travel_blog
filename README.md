@@ -1,8 +1,8 @@
-# Travel App
+# Tripn App
 
 <br>
 
-Travel blog app is where users can share itineraries from vacations and also see hotels and flights associated with those destinations.
+Tripn app is where users can share itineraries from vacations and also see hotels and flights associated with those destinations.
 
 <br>
 
