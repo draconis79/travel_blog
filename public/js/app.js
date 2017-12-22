@@ -1,5 +1,61 @@
 const app = angular.module('TravelsApp', ['ngRoute']);
 
+// -- page routes ------------------
+
+
+app.controller('ResturantsController', function () {
+    this.resturants = 'Tartine';
+});
+
+app.controller('GalleriesController', function () {
+    // this.phone = '555-1212';
+});
+
+app.controller('HotelsController', function () {
+    // this.phone = '555-1212';
+});
+
+app.controller('ItinerariesController', function () {
+    // this.phone = '555-1212';
+});
+
+app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    // Enables Push State
+    $locationProvider.html5Mode({ enabled: true });
+
+    // ROUTES
+    $routeProvider.when('/itineraries', {
+        templateUrl: 'itineraries.html',
+        controller: 'ItinerariesController',
+        controllerAs: 'ctrl'
+    });
+
+    $routeProvider.when('/restuarants', {
+        templateUrl: 'restuarants.html',
+        controller: 'ResturantsController',
+        controllerAs: 'ctrl'
+    });
+
+    $routeProvider.when('/hotels', {
+        templateUrl: 'hotels.html',
+        controller: 'HotelsController',
+        controllerAs: 'ctrl'
+    });
+
+    $routeProvider.when('/galleries', {
+        templateUrl: 'galleries.html',
+        controller: 'GalleriesController',
+        controllerAs: 'ctrl'
+    });
+    $routeProvider.otherwise({
+        // if browser url doesn't match any of the above...
+        // here you can do something like above if you'd like with a template and a controller
+        redirectTo: '/' // or you can redirect to another url.
+        // redirection can happen in any 'when' action; I just happened to do it here.
+        // I could have put it in one of the above sections too
+    });
+
+}]);
 
 app.controller('MainController', ['$http', function ($http) {
 
@@ -162,7 +218,10 @@ app.controller('MainController', ['$http', function ($http) {
         }).catch(err => console.error('Catch: ', err));
     }
 
-
+    // fuction to close nav after clicking login or sign up
+    this.closeNav = () => {
+      $('.navbar-toggle').class('');
+    }
 
     //-Modal---open/close------------------
     this.showLoginModal = () => {
@@ -192,7 +251,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
     this.closeNav = () => {
-        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("newbar").style.height = "0";
     }
     //--end--side nav----------------
 
@@ -233,62 +292,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
-    // -- page routes ------------------
 
-
-    app.controller('ResturantsController', function () {
-        this.resturants = 'Tartine';
-    });
-
-    app.controller('GalleriesController', function () {
-        // this.phone = '555-1212';
-    });
-
-    app.controller('HotelsController', function () {
-        // this.phone = '555-1212';
-    });
-
-    app.controller('ItinerariesController', function () {
-        // this.phone = '555-1212';
-    });
-
-    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-        // Enables Push State
-        $locationProvider.html5Mode({ enabled: true });
-
-        // ROUTES
-        $routeProvider.when('/itineraries', {
-            templateUrl: 'itineraries.html',
-            controller: 'ItinerariesController',
-            controllerAs: 'ctrl'
-        });
-
-        $routeProvider.when('/restuarants', {
-            templateUrl: 'restuarants.html',
-            controller: 'ResturantsController',
-            controllerAs: 'ctrl'
-        });
-
-        $routeProvider.when('/hotels', {
-            templateUrl: 'hotels.html',
-            controller: 'HotelsController',
-            controllerAs: 'ctrl'
-        });
-
-        $routeProvider.when('/galleries', {
-            templateUrl: 'galleries.html',
-            controller: 'GalleriesController',
-            controllerAs: 'ctrl'
-        });
-        $routeProvider.otherwise({
-            // if browser url doesn't match any of the above...
-            // here you can do something like above if you'd like with a template and a controller
-            redirectTo: '/' // or you can redirect to another url.
-            // redirection can happen in any 'when' action; I just happened to do it here.
-            // I could have put it in one of the above sections too
-        });
-
-    }]);
 
     //-----google map ---------------------
 
@@ -329,44 +333,96 @@ app.controller('MainController', ['$http', function ($http) {
     })
         .catch(err => console.log(err));
 
-    
+
             this.hotelsParisfunction = () => {
                 console.log('getting hotels Paris array!')
                 $http({
                     url: this.hotelsParis,
                     method: 'GET'
                 }).then(response => {
-                    this.travelInfos = response.data.results
-                    console.log(this.travelInfos)
+                    this.travelInfosParis = response.data.results
+                    console.log(this.travelInfosParis)
                     // this.hotelsParisParsed = JSON.parse(travelInfos)
                     // console.log(this.hotelsParisParsed)
                 })
                     .catch(err => console.log(err));
-            } 
+            }
+
+
+
+    $http({
+        url: '/hotelsLondon',
+        method: 'GET'
+    }).then(response => {
+        // this.travelauth = response.data.travelauth
+        this.hotelsLondon = response.data.hotelsLondon
+    })
+        .catch(err => console.log(err));
+
+
+    this.hotelsLondonfunction = () => {
+        console.log('getting hotels London array!')
+        $http({
+            url: this.hotelsLondon,
+            method: 'GET'
+        }).then(response => {
+            this.travelInfosLondon = response.data.results
+            console.log(this.travelInfosLondon)
+            // this.hotelsLondonParsed = JSON.parse(travelInfos)
+            // console.log(this.hotelsLondonParsed)
+        })
+            .catch(err => console.log(err));
+    }
+
+
+
+    $http({
+        url: '/hotelsJamaica',
+        method: 'GET'
+    }).then(response => {
+        // this.travelauth = response.data.travelauth
+        this.hotelsJamaica = response.data.hotelsJamaica
+    })
+        .catch(err => console.log(err));
+
+
+    this.hotelsJamaicafunction = () => {
+        console.log('getting hotels Jamaica array!')
+        $http({
+            url: this.hotelsJamaica,
+            method: 'GET'
+        }).then(response => {
+            this.travelInfosJamaica = response.data.results
+            console.log(this.travelInfosJamaica)
+            // this.hotelsParisParsed = JSON.parse(travelInfos)
+            // console.log(this.hotelsParisParsed)
+        })
+            .catch(err => console.log(err));
+    }
 
 
     //Flight schedules
 
-    $http({
-        url: '/flightsParis',
-        method: 'GET'
-    }).then(response => {
-        this.flightsParis = response.data.flightsParis
-    })
-        .catch(err => console.log(err));
+    // $http({
+    //     url: '/flightsParis',
+    //     method: 'GET'
+    // }).then(response => {
+    //     this.flightsParis = response.data.flightsParis
+    // })
+    //     .catch(err => console.log(err));
 
-            this.flightsParisfunction = () => {
-                console.log('getting Paris flights array!')
-                console.log(this.flightsParis)
-                $http({
-                    url: this.flightsParis,
-                    method: 'GET'
-                }).then(response => {
-                    this.travelInfos = response.data;
-                    console.log(this.travelInfos)
-                })
-                    .catch(err => console.log(err));
-            } 
+    //         this.flightsParisfunction = () => {
+    //             console.log('getting Paris flights array!')
+    //             console.log(this.flightsParis)
+    //             $http({
+    //                 url: this.flightsParis,
+    //                 method: 'GET'
+    //             }).then(response => {
+    //                 this.travelInfos = response.data;
+    //                 console.log(this.travelInfos)
+    //             })
+    //                 .catch(err => console.log(err));
+    //         }
 
 
 
@@ -381,3 +437,36 @@ app.controller('MainController', ['$http', function ($http) {
 
 
 }]);
+
+// fade requestAnimation
+// console.log(this);
+//
+//     let doc = $('.hope'),
+//     fadeMe = $('.fadeMe');
+// console.log(doc);
+// console.log(fadeMe);
+//     doc.on('scroll', () => {
+//       console.log('anything');
+//       let scrollpos = this.scrollTop() ;
+//       fadeMe.each(() => {
+//         let elemoffsetTop = this.offset().top;
+//         if (scrollpos > elemoffsetBottom) {
+//           this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400)
+//         }
+//       })
+//     })
+//
+//
+// $(() => {
+//   let $this = this;
+//   $('*').each((i) => {
+//     setTimeout((i) => {
+//       $('*').eq(i).attr('data-aos': 'fade-in');
+//     }, 200 * i);
+//   });
+// })
+
+AOS.init({
+  easing: 'ease-out-back',
+  duration: 50000000
+});
