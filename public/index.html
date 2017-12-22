@@ -33,10 +33,10 @@
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> -->
 
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-
+    <link href="css/aos.css" rel="stylesheet">
 </head>
 
-<body ng-app="TravelsApp" ng-controller="MainController as ctrl">
+<body class="hope" ng-app="TravelsApp" ng-controller="MainController as ctrl">
 
     <!--//////  Partials login-form ////-->
     <div ng-include="'partials/login_form.html'"></div>
@@ -207,6 +207,7 @@
             </p>
         </div>
     </div>
+    </div>
     <div class="mySlides w3-display-container w3-center">
         <img src="/css/images/vietnam.jpeg" style="width:100%">
         <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
@@ -277,7 +278,7 @@
 
         <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
             <div class="w3-third w3-margin-bottom">
-                <img src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
+                <img data-aos="fade-up" src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
                 <div class="w3-container w3-white">
                     <p>
                         <b>Jamaica</b>
@@ -288,7 +289,7 @@
                 </div>
             </div>
             <div class="w3-third w3-margin-bottom">
-                <img src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
+                <img data-aos="fade-down"src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
                 <div class="w3-container w3-white">
                     <p>
                         <b>London</b>
@@ -299,7 +300,7 @@
                 </div>
             </div>
             <div class="w3-third w3-margin-bottom">
-                <img src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                <img data-aos="fade-left"src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
                 <div class="w3-container w3-white">
                     <p>
                         <b>Paris</b>
@@ -311,9 +312,9 @@
         <!-- The Tour Section -->
         <div class="w3-lightgrey" id="itineraries">
             <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-                <h2 class="w3-wide w3-center">ITINERARIES</h2>
+                <h2 data-aos="fade-in" class="w3-wide w3-center">ITINERARIES</h2>
                 <p class="w3-opacity w3-center">
-                    <h6>Remember to book your tickets!</h6>
+                    <h6 data-aos="fade-in">Remember to book your tickets!</h6>
                 </p>
                 <!-- <ul class="w3-ul w3-border w3-white w3-text-grey">
                     <li class="w3-padding">Janruary
@@ -328,8 +329,8 @@
                 </ul> -->
             </div>
             <div class="w3-row-padding w3-padding" style="margin:0 -16px">
-                <div class="w3-third w3-margin-bottom">
-                    <img class="card-img-top" src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
+                <div data-aos="zoom-in"class="w3-third w3-margin-bottom">
+                    <img data-aos="flip-right" class="card-img-top" src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
                     <div class="w3-container w3-white">
                         <p>
                             <b>Jamaica</b>
@@ -340,7 +341,7 @@
                     </div>
                 </div>
                 <div class="w3-third w3-margin-bottom">
-                    <img class="card-img-top" src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
+                    <img data-aos="flip-down" class="card-img-top" src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
                     <div class="w3-container w3-white">
                         <p>
                             <b>London</b>
@@ -351,10 +352,10 @@
                     </div>
                 </div>
                 <div class="w3-third w3-margin-bottom">
-                    <img class="card-img-top" src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
-                    <div class="w3-container w3-white">
+                    <img  data-aos="fade-up" class="card-img-top" src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div data-aos="fade-up" class="w3-container w3-white">
                         <p>
-                            <b>Paris</b>
+                            <b data-aos="slide-right">Paris</b>
                         </p>
                         <p class="w3-opacity">Sun 29 Nov 2016</p>
                         <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
@@ -367,7 +368,7 @@
 
 
         <!-- Ticket Modal -->
-        <div id="ticketModal" class="w3-modal">
+        <div aos='fade-in' id="ticketModal" class="w3-modal">
             <div class="w3-modal-content w3-animate-top w3-card-4">
                 <header class="w3-container w3-teal w3-center w3-padding-32">
                     <span onclick="document.getElementById('ticketModal').style.display='none'" class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
@@ -399,7 +400,7 @@
         </div>
 
         <!-- The Contact Section -->
-        <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+        <div data-aos="fade-in" class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
             <h2 class="w3-wide w3-center">CONTACT</h2>
             <p class="w3-opacity w3-center">
                 <h6>Sign-up for latest travel ideas</h6>
@@ -446,6 +447,16 @@
     crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
     crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/aos.js"></script>
+
+    </script>
+    <script type="text/javascript">
+    AOS.init({
+      duration: 3000
+    });
+    </script>
+
+    </script>
 
 </body>
 </html>

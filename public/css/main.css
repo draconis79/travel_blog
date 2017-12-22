@@ -564,3 +564,12 @@ margin: 5% 20%;
 /*input:hover{
   transition: scale(1.1);
 }*/
+
+[aos='fade-in']{
+  opacity: 0;
+  transition: all 20000ms ease-in;
+}
+
+[aos='fade-in'].aos-animate{
+  opacity: 1;
+}

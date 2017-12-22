@@ -32,10 +32,10 @@
         <button href="/about"  ng-click="ctrl.showEdit( travel )">edit</button>
         <button ng-click="ctrl.deleteTravel( travel._id )">remove</button>
 
-<input type="checkbox" ng-click="ctrl.flightsParisfunction()" ng-model="infoFlights"><span>View Flights</span>
-<input type="checkbox" ng-click="ctrl.hotelsParisfunction()" ng-model="infoHotel"><span>View Hotels</span>
+<input data-aos="slide-left" type="checkbox" ng-click="ctrl.flightsParisfunction()" ng-model="infoFlights"><span>View Flights</span>
+<input data-aos="slide-right" type="checkbox" ng-click="ctrl.hotelsParisfunction()" ng-model="infoHotel"><span>View Hotels</span>
 
-<div ng-show="infoFlights">
+<div data-aos="flip-up"ng-show="infoFlights">
         <div >
             <!-- <div ng-repeat="travelInfo in ctrl.travelInfos"></div> -->
             <h6>Flights to {{ctrl.travelInfos}}</h6>
@@ -46,7 +46,7 @@
 
         </div>
 </div>
-<div ng-show="infoHotel">
+<div data-aos="zoom-out" ng-show="infoHotel">
     <div>
     <!-- <div ng-repeat="travel in ctrl.travels"> -->
     <h6>{{ctrl.travelInfos[6].property_name}} at ${{ctrl.travelInfos[6].total_price.amount}}</h6>
