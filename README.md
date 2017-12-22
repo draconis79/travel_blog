@@ -1,8 +1,8 @@
-# Tripn App
+# Travels App
 
 <br>
 
-Tripn app is where users can share itineraries from vacations and also see hotels and flights associated with those destinations.
+Travels app is where users can share itineraries from vacations and also see hotels and flights associated with those destinations.
 
 <br>
 
