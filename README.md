@@ -29,6 +29,8 @@ We created a travel blog where users can share itineraries from vacations and al
 
 - Collaborating with Github, working on different branches, and merging.
 - Styling with CSS/Bootstrap is really fun but I ran into alignment and column issues.
+- Finding a travel API we could use. Travelocity didn't work out due to a high demand.
+- Populating each new post in the show route into the styled cards.
 
 <br>
 
