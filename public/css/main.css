@@ -31,7 +31,7 @@ body {
 
 }
 
-h3, p, b, h6 {
+h3, h4, p, b, h6 {
   font-family: 'Open Sans Condensed', sans-serif;
   font weight: 400px;
 }
@@ -41,7 +41,12 @@ h6 {
   text-align: center;
   justify-content: center;
   }
-}
+
+.h6left {
+
+  text-align: left;
+  }
+
 
 /* CUSTOMIZE THE NAVBAR
 -------------------------------------------------- */
