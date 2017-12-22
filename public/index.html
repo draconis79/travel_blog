@@ -221,7 +221,7 @@
 
 
 
-    <div class="containerOne">
+    <div data-aos="slide-left" class="containerOne">
         <!-- create form below-->
         <div class="center">
             <h6 class="h6Forms">Add a Travel Experience</h6>
@@ -230,7 +230,7 @@
             <!--//////  end of partials ////-->
         </div>
 
-        <div class="backgroundMiddle">
+        <div data-aos="slide-right" class="backgroundMiddle">
             <div class="tableDiv">
 
                 <!-- ////// partials List of Travel Destinations////-->
@@ -241,18 +241,18 @@
         <!-- end containerOne -->
         <!-- Beginning update/edit form  -->
         <!-- ////// Edit Form partials////-->
-        <div ng-include="'partials/edit_form.html'"></div>
+        <div data-aos="slide-left" ng-include="'partials/edit_form.html'"></div>
         <!--//////  end partials//// -->
     </div>
     <!-- end CRUD routes -->
 
 
     <!-- skyscanner GEO IP search -->
-    <div class="skyscannerFlights" data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-currency="USD"></div>
+    <div data-aos="slide-right" class="skyscannerFlights" data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-currency="USD"></div>
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
 
     <!-- The Tour Section -->
-    <div class="w3-grey" id="itineraries">
+    <div data-aos="slide-left" class="w3-grey" id="itineraries">
         <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
             <h2 class="w3-wide w3-center">HOTELS</h2>
             <p class="w3-opacity w3-center">
@@ -272,7 +272,7 @@
                 </li>
             </ul>
 
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+            <div data-aos="slide-right" class="w3-row-padding w3-padding-32" style="margin:0 -16px">
                 <div class="w3-third w3-margin-bottom">
                     <img class="card-img-top" src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
                     <div class="w3-container w3-white">
@@ -284,7 +284,7 @@
                         <button class="w3-button w3-grey w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
                     </div>
                 </div>
-                <div class="w3-third w3-margin-bottom">
+                <div data-aos="slide-left" class="w3-third w3-margin-bottom">
                     <img data-aos="flip-down" class="card-img-top" src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
                     <div class="w3-container w3-white">
                         <p>
@@ -295,7 +295,7 @@
                         <button class="w3-button w3-grey w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">View More</button>
                     </div>
                 </div>
-                <div class="w3-third w3-margin-bottom">
+                <div data-aos="slide-right" class="w3-third w3-margin-bottom">
                     <img  data-aos="fade-up" class="card-img-top" src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
                     <div data-aos="fade-up" class="w3-container w3-white">
                         <p>
@@ -309,7 +309,7 @@
 
 
                     <!-- The Tour Section -->
-                    <div class="w3-lightgrey" id="itineraries">
+                    <div data-aos="slide-left"class="w3-lightgrey" id="itineraries">
                         <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
                             <h2 class="w3-wide w3-center">ITINERARIES</h2>
                             <p class="w3-opacity w3-center">
@@ -327,7 +327,7 @@
                     </li>
                 </ul> -->
                         </div>
-                        <div class="w3-row-padding w3-padding" style="margin:0 -16px">
+                        <div data-aos="slide-right" class="w3-row-padding w3-padding" style="margin:0 -16px">
                             <div class="w3-third w3-margin-bottom">
                                 <img class="card-img-top" src="/css/images/jamaica.jpg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
                                 <div class="w3-container w3-white">
@@ -339,7 +339,7 @@
                                     <button class="w3-button w3-grey w3-section w3-left" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
                                 </div>
                             </div>
-                            <div class="w3-third w3-margin-bottom">
+                            <div data-aos="slide-left" class="w3-third w3-margin-bottom">
                                 <img class="card-img-top" src="/css/images/london.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
                                 <div class="w3-container w3-white">
                                     <p>
@@ -350,7 +350,7 @@
                                     <button class="w3-button w3-grey w3-section w3-left" onclick="document.getElementById('ticketModal').style.display='block'">Buy Tickets</button>
                                 </div>
                             </div>
-                            <div class="w3-third w3-margin-bottom">
+                            <div data-aos="slide-right" class="w3-third w3-margin-bottom">
                                 <img class="card-img-top" src="/css/images/paris.jpeg" alt="Paris" style="width:100%" class="w3-hover-opacity">
                                 <div class="w3-container w3-white">
                                     <p>
@@ -367,14 +367,14 @@
 
 
                 <!-- Ticket Modal -->
-                <div id="ticketModal" class="w3-modal">
+                <div data-aos="slide-left" id="ticketModal" class="w3-modal">
                     <div class="w3-modal-content w3-animate-top w3-card-4">
                         <header class="w3-container w3-teal w3-center w3-padding-32">
                             <span onclick="document.getElementById('ticketModal').style.display='none'" class="w3-button w3-teal w3-xlarge w3-display-topright">×</span>
                             <h2 class="w3-wide">
                                 <i class="fa fa-suitcase w3-margin-right"></i>Tickets</h2>
                         </header>
-                        <div class="w3-container">
+                        <div data-aos="slide-right" class="w3-container">
                             <p>
                                 <label>
                         <i class="fa fa-shopping-cart"></i> Tickets, $15 per person</label>
@@ -399,12 +399,12 @@
                 </div>
 
                 <!-- The Contact Section -->
-                <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
+                <div data-aos="slide-left" class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
                     <h2 class="w3-wide w3-center">CONTACT</h2>
                     <p class="w3-opacity w3-center">
                         <h6>Sign-up for latest travel ideas</h6>
                     </p>
-                    <div class="w3-row w3-padding-32">
+                    <div data-aos="slide-right" class="w3-row w3-padding-32">
                         <div class="w3-col m6 w3-large w3-margin-bottom">
                             <i class="fa fa-map-marker" style="width:30px"></i> Chicago, US
                             <br>
@@ -413,7 +413,7 @@
                             <i class="fa fa-envelope" style="width:30px"> </i> Email: mail@mail.com
                             <br>
                         </div>
-                        <div class="w3-col m6">
+                        <div data-aos="slide-left" class="w3-col m6">
                             <form action="/action_page.php" target="_blank">
                                 <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                                     <div class="w3-half">
