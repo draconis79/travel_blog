@@ -1,10 +1,10 @@
 <!-- modal -->
-<div data-aos="slide-left" class="modalType" ng-class="(ctrl.modalOpenLogin ? 'modalOpenLogin' : '' )">
+<div class="modalType" ng-class="(ctrl.modalOpenLogin ? 'modalOpenLogin' : '' )">
     <div class="modal-text-box">
 
 
 
-        <h2  data-aos="slide-right" class="modalH2">Login</h2>
+        <h2 class="modalH2">Login</h2>
         <form ng-submit='ctrl.loginUser()'>
             <div class="form-group">
                 <label for="pwd">Username:</label>
@@ -14,13 +14,13 @@
                 <label for="pwd">Password:</label>
                 <input type="password" class="form-control" placeholder="password" ng-model="ctrl.loginForm.password" />
             </div>
-            <div data-aos="slide-up" class="checkbox">
+            <div class="checkbox">
                 <label><input type="checkbox"> Remember me</label>
             </div>
             <input type="submit" />
         </form>
 
-        <form data-aos="slide-down" ng-if='ctrl.user' ng-submit='ctrl.logout()'>
+        <form ng-if='ctrl.user' ng-submit='ctrl.logout()'>
             <input type='submit' value='logout' />
         </form>
 

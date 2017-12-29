@@ -1,61 +1,5 @@
 const app = angular.module('TravelsApp', ['ngRoute']);
 
-// -- page routes ------------------
-
-
-app.controller('ResturantsController', function () {
-    this.resturants = 'Tartine';
-});
-
-app.controller('GalleriesController', function () {
-    // this.phone = '555-1212';
-});
-
-app.controller('HotelsController', function () {
-    // this.phone = '555-1212';
-});
-
-app.controller('ItinerariesController', function () {
-    // this.phone = '555-1212';
-});
-
-app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-    // Enables Push State
-    $locationProvider.html5Mode({ enabled: true });
-
-    // ROUTES
-    $routeProvider.when('/itineraries', {
-        templateUrl: 'itineraries.html',
-        controller: 'ItinerariesController',
-        controllerAs: 'ctrl'
-    });
-
-    $routeProvider.when('/restuarants', {
-        templateUrl: 'restuarants.html',
-        controller: 'ResturantsController',
-        controllerAs: 'ctrl'
-    });
-
-    $routeProvider.when('/hotels', {
-        templateUrl: 'hotels.html',
-        controller: 'HotelsController',
-        controllerAs: 'ctrl'
-    });
-
-    $routeProvider.when('/galleries', {
-        templateUrl: 'galleries.html',
-        controller: 'GalleriesController',
-        controllerAs: 'ctrl'
-    });
-    $routeProvider.otherwise({
-        // if browser url doesn't match any of the above...
-        // here you can do something like above if you'd like with a template and a controller
-        redirectTo: '/' // or you can redirect to another url.
-        // redirection can happen in any 'when' action; I just happened to do it here.
-        // I could have put it in one of the above sections too
-    });
-
-}]);
 
 app.controller('MainController', ['$http', function ($http) {
 
@@ -292,7 +236,62 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
 
+    // -- page routes ------------------
 
+
+    app.controller('ResturantsController', function () {
+        this.resturants = 'Tartine';
+    });
+
+    app.controller('GalleriesController', function () {
+        // this.phone = '555-1212';
+    });
+
+    app.controller('HotelsController', function () {
+        // this.phone = '555-1212';
+    });
+
+    app.controller('ItinerariesController', function () {
+        // this.phone = '555-1212';
+    });
+
+    app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+        // Enables Push State
+        $locationProvider.html5Mode({ enabled: true });
+
+        // ROUTES
+        $routeProvider.when('/itineraries', {
+            templateUrl: 'itineraries.html',
+            controller: 'ItinerariesController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/restuarants', {
+            templateUrl: 'restuarants.html',
+            controller: 'ResturantsController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/hotels', {
+            templateUrl: 'hotels.html',
+            controller: 'HotelsController',
+            controllerAs: 'ctrl'
+        });
+
+        $routeProvider.when('/galleries', {
+            templateUrl: 'galleries.html',
+            controller: 'GalleriesController',
+            controllerAs: 'ctrl'
+        });
+        $routeProvider.otherwise({
+            // if browser url doesn't match any of the above...
+            // here you can do something like above if you'd like with a template and a controller
+            redirectTo: '/' // or you can redirect to another url.
+            // redirection can happen in any 'when' action; I just happened to do it here.
+            // I could have put it in one of the above sections too
+        });
+
+    }]);
 
     //-----google map ---------------------
 
@@ -400,73 +399,13 @@ app.controller('MainController', ['$http', function ($http) {
             .catch(err => console.log(err));
     }
 
-
-    //Flight schedules
-
-    // $http({
-    //     url: '/flightsParis',
-    //     method: 'GET'
-    // }).then(response => {
-    //     this.flightsParis = response.data.flightsParis
-    // })
-    //     .catch(err => console.log(err));
-
-    //         this.flightsParisfunction = () => {
-    //             console.log('getting Paris flights array!')
-    //             console.log(this.flightsParis)
-    //             $http({
-    //                 url: this.flightsParis,
-    //                 method: 'GET'
-    //             }).then(response => {
-    //                 this.travelInfos = response.data;
-    //                 console.log(this.travelInfos)
-    //             })
-    //                 .catch(err => console.log(err));
-    //         }
-
-
-
-
-
-
-
             //end travel ---
 
 
-
-
+    AOS.init({
+        // easing: 'ease-out-back',
+        duration: 3000
+    })
 
 }]);
 
-// fade requestAnimation
-// console.log(this);
-//
-//     let doc = $('.hope'),
-//     fadeMe = $('.fadeMe');
-// console.log(doc);
-// console.log(fadeMe);
-//     doc.on('scroll', () => {
-//       console.log('anything');
-//       let scrollpos = this.scrollTop() ;
-//       fadeMe.each(() => {
-//         let elemoffsetTop = this.offset().top;
-//         if (scrollpos > elemoffsetBottom) {
-//           this.css('opacity', 1 - (scrollpos - elemoffsetTop)/400)
-//         }
-//       })
-//     })
-//
-//
-// $(() => {
-//   let $this = this;
-//   $('*').each((i) => {
-//     setTimeout((i) => {
-//       $('*').eq(i).attr('data-aos': 'fade-in');
-//     }, 200 * i);
-//   });
-// })
-
-AOS.init({
-  easing: 'ease-out-back',
-  duration: 50000000
-});
