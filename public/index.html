@@ -8,20 +8,23 @@
     <title>Travel Blog</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js" charset="utf-8"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <script src="/js/app.js" charset="utf-8"></script>
     <base href="/" target="_blank">
 
     <!-- ! Bootstrap CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
-   
+
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 
@@ -41,7 +44,7 @@
     <div class="is-visible" ng-include="'partials/nav.html'"></div>
     <!--////// end of partials ////-->
 
-    
+
     <!-- Automatic Slideshow Images -->
     <div class="mySlides w3-display-container w3-center">
         <img src="/css/images/sanfran.jpg" style="width:100%">
@@ -127,7 +130,7 @@
     <div class="mySlides w3-display-container w3-center">
         <img src="/css/images/pexels-photo-59519.jpeg" style="width:100%">
         <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
-            
+
         </div>
     </div>
 
@@ -164,7 +167,7 @@
 
     <!-- skyscanner GEO IP search -->
     <div class="skyscannerFlights" data-skyscanner-widget="SearchWidget" data-origin-geo-lookup="true" data-currency="USD"></div>
-    
+
     <script src="https://widgets.skyscanner.net/widget-server/js/loader.js" async></script>
     <a name='hotels'></a>
 
@@ -199,25 +202,14 @@
                         </p>
                         <p class="w3-opacity">2018 Recommendation</p>
                         <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <a href="https://www.tripadvisor.com/Hotel_Review-g147311-d209673-Reviews-Holiday_Inn_Resort_Montego_Bay-Montego_Bay_Saint_James_Parish_Jamaica.html"><button class="w3-button w3-grey w3-margin-bottom">View More</button></a>
+                        <a href="https://www.tripadvisor.com/Hotel_Review-g147311-d209673-Reviews-Holiday_Inn_Resort_Montego_Bay-Montego_Bay_Saint_James_Parish_Jamaica.html">
+                            <button class="w3-button w3-grey w3-margin-bottom">View More</button>
+                        </a>
                         <br>
-                        <input type="checkbox" ng-click="ctrl.hotelsJamaicafunction()" ng-model="infoHotelJamaica">
-                        <span style="font-size:20px">View Hotels and Current Prices</span>
-                        <br>
-                        <div ng-show="infoHotelJamaica">
-                            <div>
-                                <!-- <div ng-repeat="travel in ctrl.travels"> -->
-                                <h6>{{ctrl.travelInfosJamaica[0].property_name}} at ${{ctrl.travelInfosJamaica[0].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosJamaica[1].property_name}} at ${{ctrl.travelInfosJamaica[1].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosJamaica[2].property_name}} at ${{ctrl.travelInfosJamaica[2].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosJamaica[3].property_name}} at ${{ctrl.travelInfosJamaica[3].total_price.amount}}</h6>
 
-                            </div>
-                        </div>
-                        <br>
                     </div>
                 </div>
-                
+
                 <div data-aos="flip-down" class="w3-third w3-margin-bottom">
                     <img src="/css/images/LondonHotel.jpeg" alt="London" style="width:100%; height:auto;" class="w3-hover-opacity">
                     <div class="w3-container w3-white">
@@ -227,27 +219,11 @@
                         </p>
                         <p class="w3-opacity">2018 Recommendation</p>
                         <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <a href="https://www.tripadvisor.com/Hotel_Review-g186338-d248802-Reviews-St_Ermin_s_Hotel_Autograph_Collection-London_England.html"><button class="w3-button w3-grey w3-margin-bottom">View More</button></a>
+                        <a href="https://www.tripadvisor.com/Hotel_Review-g186338-d248802-Reviews-St_Ermin_s_Hotel_Autograph_Collection-London_England.html">
+                            <button class="w3-button w3-grey w3-margin-bottom">View More</button>
+                        </a>
                         <br>
-                        <input type="checkbox" ng-click="ctrl.hotelsLondonfunction()" ng-model="infoHotelLondon">
-                        <span style="font-size:20px">View Hotels and Current Prices</span>
-                        <br>
-                        <div ng-show="infoHotelLondon">
-                            <div>
-                                <!-- <div ng-repeat="travel in ctrl.travels"> -->
 
-                                <h6>{{ctrl.travelInfosLondon[2].property_name}} at ${{ctrl.travelInfosLondon[2].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosLondon[4].property_name}} at ${{ctrl.travelInfosLondon[4].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosLondon[6].property_name}} at ${{ctrl.travelInfosLondon[6].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosLondon[8].property_name}} at ${{ctrl.travelInfosLondon[8].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosLondon[10].property_name}} at ${{ctrl.travelInfosLondon[10].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosLondon[12].property_name}} at ${{ctrl.travelInfosLondon[12].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosLondon[17].property_name}} at ${{ctrl.travelInfosLondon[17].total_price.amount}}</h6>
-                        
-                        
-                            </div>
-                        </div>
-                        <br>
                     </div>
                 </div>
                 <div data-aos="slide-left" class="w3-third w3-margin-bottom">
@@ -259,91 +235,79 @@
                         </p>
                         <p class="w3-opacity">2018 Recommendation</p>
                         <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                        <a href="https://www.tripadvisor.com/Hotel_Review-g187147-d228790-Reviews-Hotel_Edouard_7-Paris_Ile_de_France.html"><button class="w3-button w3-grey w3-margin-bottom">View More</button></a>
+                        <a href="https://www.tripadvisor.com/Hotel_Review-g187147-d228790-Reviews-Hotel_Edouard_7-Paris_Ile_de_France.html">
+                            <button class="w3-button w3-grey w3-margin-bottom">View More</button>
+                        </a>
                         <br>
-                        <input type="checkbox" ng-click="ctrl.hotelsParisfunction()" ng-model="infoHotelParis">
-                        <span style="font-size:20px">View Hotels and Current Prices</span>
-                        <br>
-                        <div ng-show="infoHotelParis">
-                            <div>
-                                <!-- <div ng-repeat="travel in ctrl.travels"> -->
-                                <h6>{{ctrl.travelInfosParis[6].property_name}} at ${{ctrl.travelInfosParis[6].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[7].property_name}} at ${{ctrl.travelInfosParis[7].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[8].property_name}} at ${{ctrl.travelInfosParis[8].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[9].property_name}} at ${{ctrl.travelInfosParis[9].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[10].property_name}} at ${{ctrl.travelInfosParis[10].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[11].property_name}} at ${{ctrl.travelInfosParis[11].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[12].property_name}} at ${{ctrl.travelInfosParis[12].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[13].property_name}} at ${{ctrl.travelInfosParis[13].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[14].property_name}} at ${{ctrl.travelInfosParis[14].total_price.amount}}</h6>
-                                <h6>{{ctrl.travelInfosParis[15].property_name}} at ${{ctrl.travelInfosParis[15].total_price.amount}}</h6>
-                        
-                        
+
+                    </div>
+                </div>
+            </div>
+            <a name='restuarants'></a>
+        </div>
+
+        <!-- Restaurant Section -->
+        <div style="background-color:#F1F1F1; width: 100%">
+            <div class="w3-lightgrey" id="itineraries">
+                <div class="w3-container w3-content w3-padding-64" style="max-width:1000px">
+                    <h2 data-aos="zoom-in" class="w3-wide w3-center">RESTAURANTS</h2>
+                    <p class="w3-opacity w3-center">
+                        <h6>Remember to reserve a seat!</h6>
+                    </p>
+
+
+                    <div class="w3-row-padding w3-padding" style="margin:0 -16px">
+                        <div data-aos="flip-left" class="w3-third w3-margin-bottom">
+                            <img src="/css/images/JamaicanRestaurant.jpeg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
+                            <div class="w3-container w3-white">
+                                <br>
+                                <p>
+                                    <b>Jamaica</b>
+                                </p>
+                                <p class="w3-opacity">2018 Recommendation</p>
+                                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <a href="https://www.tripadvisor.com/Restaurant_Review-g7099629-d3907659-Reviews-Zimbali_s_Mountain_Cooking_Studio-Little_London_Negril_Westmoreland_Parish_Jamai.html">
+                                    <button class="w3-button w3-grey w3-section w3-left">View Restaurant</button>
+                                </a>
                             </div>
                         </div>
-                        <br>
-                    </div>
-                  </div>
-                </div>
-                <a name='restuarants'></a>
-                </div>
-
-                    <!-- Restaurant Section -->
-                    <div style="background-color:#F1F1F1; width: 100%">
-                    <div class="w3-lightgrey" id="itineraries">
-                        <div class="w3-container w3-content w3-padding-64" style="max-width:1000px" >
-                            <h2 data-aos="zoom-in" class="w3-wide w3-center">RESTAURANTS</h2>
-                            <p class="w3-opacity w3-center">
-                                <h6>Remember to reserve a seat!</h6>
-                            </p>
-             
-                        
-                        <div class="w3-row-padding w3-padding" style="margin:0 -16px">
-                            <div data-aos="flip-left" class="w3-third w3-margin-bottom">
-                                <img src="/css/images/JamaicanRestaurant.jpeg" alt="Jamaica" style="width:100%" class="w3-hover-opacity">
-                                <div class="w3-container w3-white">
-                                    <br>
-                                    <p>
-                                        <b>Jamaica</b>
-                                    </p>
-                                    <p class="w3-opacity">2018 Recommendation</p>
-                                    <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <a href="https://www.tripadvisor.com/Restaurant_Review-g7099629-d3907659-Reviews-Zimbali_s_Mountain_Cooking_Studio-Little_London_Negril_Westmoreland_Parish_Jamai.html"><button class="w3-button w3-grey w3-section w3-left">View Restaurant</button></a>
-                                </div>
+                        <div data-aos="flip-up" class="w3-third w3-margin-bottom">
+                            <img src="/css/images/LondonRestaurant.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
+                            <div class="w3-container w3-white">
+                                <br>
+                                <p>
+                                    <b>London</b>
+                                </p>
+                                <p class="w3-opacity">2018 Recommendation</p>
+                                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <a href="https://www.tripadvisor.com/Restaurant_Review-g186338-d1015979-Reviews-Duke_of_York-London_England.html">
+                                    <button class="w3-button w3-grey w3-section w3-left">View Restaurant</button>
+                                </a>
                             </div>
-                            <div data-aos="flip-up" class="w3-third w3-margin-bottom">
-                                <img src="/css/images/LondonRestaurant.jpeg" alt="London" style="width:100%" class="w3-hover-opacity">
-                                <div class="w3-container w3-white">
-                                    <br>
-                                    <p>
-                                        <b>London</b>
-                                    </p>
-                                    <p class="w3-opacity">2018 Recommendation</p>
-                                    <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <a href="https://www.tripadvisor.com/Restaurant_Review-g186338-d1015979-Reviews-Duke_of_York-London_England.html"> <button class="w3-button w3-grey w3-section w3-left">View Restaurant</button></a>
-                                </div>
-                            </div>
-                            <div data-aos="flip-right" class="w3-third w3-margin-bottom">
-                                <img src="/css/images/ParisRestaurant.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
-                                <div class="w3-container w3-white">
-                                    <br>
-                                    <p>
-                                        <b>Paris</b>
-                                    </p>
-                                    <p class="w3-opacity">2018 Recommendation</p>
-                                    <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                                    <a href="https://www.tripadvisor.com/Restaurant_Review-g187147-d7679533-Reviews-Le_Gabriel-Paris_Ile_de_France.html"><button class="w3-button w3-grey w3-section w3-left">View Restaurant</button></a>
-                                </div>
+                        </div>
+                        <div data-aos="flip-right" class="w3-third w3-margin-bottom">
+                            <img src="/css/images/ParisRestaurant.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                            <div class="w3-container w3-white">
+                                <br>
+                                <p>
+                                    <b>Paris</b>
+                                </p>
+                                <p class="w3-opacity">2018 Recommendation</p>
+                                <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                                <a href="https://www.tripadvisor.com/Restaurant_Review-g187147-d7679533-Reviews-Le_Gabriel-Paris_Ile_de_France.html">
+                                    <button class="w3-button w3-grey w3-section w3-left">View Restaurant</button>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
 
-                <!-- The Contact Section -->
-                <div class="w3-grey" id="itineraries" >
-                    <div class="w3-container w3-content w3-padding-64" >
+        <!-- The Contact Section -->
+        <div class="w3-grey" id="itineraries">
+            <div class="w3-container w3-content w3-padding-64">
                 <div class="w3-container w3-content w3-padding-64" style="max-width:600px; color: white;" id="contact">
                     <h2 data-aos="zoom-in" class="w3-wide w3-center">CONTACT</h2>
                     <p class="w3-opacity w3-center">
@@ -377,17 +341,20 @@
             </div>
         </div>
     </div>
-        <!-- ////// Edit Form partials////-->
-        <div ng-include="'partials/map.html'"></div>
-        <!--//////  end partials//// -->
+    <!-- ////// Edit Form partials////-->
+    <div ng-include="'partials/map.html'"></div>
+    <!--//////  end partials//// -->
 
 
-        <!-- ////// footer partials ////-->
-        <div ng-include="'partials/footer.html'"></div>
+    <!-- ////// footer partials ////-->
+    <div ng-include="'partials/footer.html'"></div>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
 
 </body>
 
