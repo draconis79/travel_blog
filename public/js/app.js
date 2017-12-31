@@ -111,7 +111,6 @@ app.controller('MainController', ['$http', function ($http) {
 
     // Update travel
     this.showEdit = (travel) => {
-        // this.editModal = true;
         this.currentTravelEdit = angular.copy(travel)
     }
 
@@ -125,12 +124,10 @@ app.controller('MainController', ['$http', function ($http) {
             const updateByIndex = this.travels.findIndex(travel => travel._id === this.edittedData._id)
             this.travels[updateByIndex] = this.edittedData;
         }).catch(err => console.error('Catch', err));
-        this.editModal = false;
         this.currentTravelEdit = {};
     };
 
     this.dontUpdate = () => {
-        // this.editModal = false;
         this.currentTravelEdit = {};
     }
     /////-end of editting-----------------
