@@ -107,6 +107,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
 
     /////------------edit below--------
+    // Special thank to Special Thanks to Tyler Goodman, Sean Byrne, Josefina Mancilla for help on the edit route and edit modal.
 
     // Update travel
     this.showEdit = (travel) => {
@@ -134,6 +135,7 @@ app.controller('MainController', ['$http', function ($http) {
     }
     /////-end of editting-----------------
 
+    
     /////--choose travel info-------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
