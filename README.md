@@ -45,6 +45,8 @@ We created a travel blog where users can share itineraries from vacations and al
 - [Heroku Link:](https://travel-tripn.herokuapp.com/)
 
 
+Bibliography:
+
 Special Thanks to Tyler Goodman, Sean Byrne, Josefina Mancilla for help on the edit route and edit modal.
 
 Amadeus Hotel info:

@@ -111,7 +111,7 @@ app.controller('MainController', ['$http', function ($http) {
 
     // Update travel
     this.showEdit = (travel) => {
-        this.editModal = true;
+        // this.editModal = true;
         this.currentTravelEdit = angular.copy(travel)
     }
 
@@ -130,12 +130,12 @@ app.controller('MainController', ['$http', function ($http) {
     };
 
     this.dontUpdate = () => {
-        this.editModal = false;
+        // this.editModal = false;
         this.currentTravelEdit = {};
     }
     /////-end of editting-----------------
 
-    
+
     /////--choose travel info-------------------
     this.chooseOneTravel = (travel) => {
         this.travel = travel;
